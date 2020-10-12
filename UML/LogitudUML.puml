@@ -1,0 +1,120 @@
+@startuml
+
+package BDDoriented{
+
+    class Epreuve {
+        -ID: int
+        -Nom: String
+        -Date: Date
+    }
+    class Personne{
+        -ID: int
+        -Nom: String
+        -Prénom: String
+        -DateDeNaissance: Date
+        -Catégorie: int
+        -Profil: int
+    }
+
+    class Epreuve_Personne{
+        -Epreuve_ID: int
+        -Personne_ID: int
+    }
+
+    class Catégorie{
+        -ID: int
+        -Nom: String
+    }
+
+    class Profil{
+        -ID: int
+        -Nom: String
+    }
+
+    class Passage{
+        -ID: int
+        -Temps: Date
+    }
+
+    class Personne_Passage{
+        Personne_ID: int
+        Passage_ID: int
+    }
+
+    Personne "0..*" o-l- "1" Catégorie : Catégorise
+    Personne "0..*" o-r- "1" Profil : Possède
+
+    Epreuve_Personne "0..*" *-u- "1" Personne : Participe
+    Epreuve_Personne "0..*" *-- "1" Epreuve: Possède
+
+    Personne_Passage    "0..2" *-u- "1"    Personne :   Effectue
+    Personne_Passage    "1" *--  "1"    Passage  : Réalise
+}
+
+newpage
+
+
+namespace ClassOrientend{
+
+    namespace Entite{
+
+        class Epreuve {
+            -ID: int
+            -Nom: String
+            -Date: Date
+
+        }
+        class Personne{
+            -ID: int
+            -Nom: String
+            -Prénom: String
+            -DateDeNaissance: Date
+            -Catégorie: int
+            -Profil: int
+        }
+        class Catégorie{
+            -ID: int
+            -Nom: String
+        }
+
+        class Profil{
+            -ID: int
+            -Nom: String
+        }
+
+        class Passage{
+            -ID: int
+            -Temps: Date
+        }
+    }
+
+    namespace Modele{
+
+        abstract BDD{
+        +Connexion()
+        +addToBDD()
+        +deleteFromBDD()
+        }
+    }
+
+    namespace Controller{
+
+        class EpreuveController{
+            -Epreuve : Object
+            -BDD : Object
+
+            +addEpreuve()
+            +deleteEpreuve()
+            +modifyEpreuve()
+        }
+
+        EpreuveController <|-- ClassOrientend.Entite.Epreuve
+        EpreuveController <|-- ClassOrientend.Modele.BDD
+    }
+
+}
+
+
+
+
+@enduml
