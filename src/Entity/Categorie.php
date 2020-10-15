@@ -30,7 +30,7 @@ class Categorie extends EntityAbstract
         return new self($nom);
     }
 
-    public function getNom(){
+    public function getCategorieNom(){
         return $this->nom;
     }
 }

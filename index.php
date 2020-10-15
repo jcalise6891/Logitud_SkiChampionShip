@@ -4,6 +4,8 @@ require_once(dirname(__FILE__)."/vendor/autoload.php");
 
 use App\Routing\Router;
 use Symfony\Component\HttpFoundation\Request;
+use App\Model\BDD;
+use App\Entity\Categorie;
 
 $request = Request::createFromGlobals();
 $url = $request->get("url");

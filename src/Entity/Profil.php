@@ -35,7 +35,7 @@ class Profil extends EntityAbstract
     /**
      * @return String
      */
-    public function getNom(){
+    public function getProfilNom(){
         return $this->nom;
     }
 }

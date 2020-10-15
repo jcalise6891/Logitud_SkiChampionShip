@@ -14,7 +14,7 @@ abstract class EntityAbstract
      * @throws Exception
      */
     protected static function isNotEmpty(string $param){
-        if(strlen($param) == 0){
+        if(strlen(trim($param)) <= 0){
             throw new Exception('Cannot Be Empty');
 
         }
@@ -47,10 +47,10 @@ abstract class EntityAbstract
      * @throws Exception
      */
     protected static function IsBirthDateValid(DateTime $time){
-        $ts_startDate = strtotime('1920-01-01');
-        $endDate = new DateTime('today');
-        $ts_endDate = strtotime($endDate->format('YYYY-mm-dd'));
-        $ts_time = strtotime($time->format('YYYY-mm-dd'));
+
+        $ts_startDate = strtotime("01-01-1920");
+        $ts_endDate = strtotime('today');
+        $ts_time = strtotime($time->format('d-m-Y'));
 
         if($ts_time < $ts_startDate || $ts_time > $ts_endDate){
             throw new Exception('Birthdate is not valid');

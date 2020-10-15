@@ -20,36 +20,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c900f4ca-dd36-4ddd-8491-8f2312ba17d9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.php_cs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Categorie.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Epreuve.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Personne.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Profil.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Routing/Route.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Routing/Router.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Routing/RouterException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Utility/EntityAbstract.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/template/layout.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Entity/CategorieTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Entity/EpreuveTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Entity/PersonneTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Entity/ProfilTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Result/resultat.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/ico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Passage.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/BDD.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Entity/PassageTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Model/BDDTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/LogitudCS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LogitudCS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.php_cs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.php_cs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Categorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Categorie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Epreuve.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Epreuve.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Personne.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Personne.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Profil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utility/EntityAbstract.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utility/EntityAbstract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/template/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/template/layout.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Entity/EpreuveTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entity/EpreuveTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Entity/PersonneTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entity/PersonneTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Result/resultat.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Result/resultat.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable path="composer" />
@@ -143,9 +140,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary" value="PHPUnit" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Utility" />
+    <property name="last.edited.regexp" value="Catégorie\Model\Pute&#10;&#10;" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../OnlineAdvisor" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -185,7 +184,10 @@
       <workItem from="1602508333066" duration="46000" />
       <workItem from="1602508386868" duration="607000" />
       <workItem from="1602509018635" duration="7537000" />
-      <workItem from="1602589835228" duration="10103000" />
+      <workItem from="1602589835228" duration="13703000" />
+      <workItem from="1602656836579" duration="7414000" />
+      <workItem from="1602679008528" duration="7375000" />
+      <workItem from="1602743083801" duration="7639000" />
     </task>
     <servers />
   </component>
@@ -220,14 +222,18 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="710" y="327" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602508422382" />
-    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser" timestamp="1602593319129">
+    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser" timestamp="1602750823128">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602593319129" />
+    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602750823128" />
     <state x="797" y="290" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602510294741">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="797" y="290" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602510294741" />
+    <state x="707" y="369" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1602746978652">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="707" y="369" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602746978652" />
     <state x="736" y="437" key="ComposerInitDialogKey" timestamp="1602600297374">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -236,10 +242,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="824" y="430" key="ComposerValidateDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602600315157" />
-    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1602595149513">
+    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1602747434173">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602595149513" />
+    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602747434173" />
     <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1602516617869">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -256,22 +262,26 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602516617869" />
-    <state x="730" y="248" key="NewPhpClassDialog" timestamp="1602600109846">
+    <state x="730" y="248" key="NewPhpClassDialog" timestamp="1602750732153">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="730" y="248" key="NewPhpClassDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602600109846" />
+    <state x="730" y="248" key="NewPhpClassDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602750732153" />
     <state x="794" y="448" key="NewPhpFileDialog" timestamp="1602595104395">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="794" y="448" key="NewPhpFileDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602595104395" />
-    <state x="461" y="170" width="1288" height="710" key="SettingsEditor" timestamp="1602590962218">
+    <state x="461" y="170" width="1288" height="710" key="SettingsEditor" timestamp="1602747425529">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="461" y="170" key="SettingsEditor/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602590962218" />
+    <state x="461" y="170" key="SettingsEditor/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602747425529" />
     <state x="461" y="170" width="1288" height="710" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1602166694487" />
-    <state x="709" y="269" width="667" height="512" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1602593404617">
+    <state x="709" y="269" width="667" height="708" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1602751825818">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="709" y="269" width="667" height="512" key="com.jetbrains.php.test.PhpNewTestDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602593404617" />
+    <state x="709" y="269" width="667" height="708" key="com.jetbrains.php.test.PhpNewTestDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602751825818" />
+    <state x="803" y="286" key="refactoring.ChangeSignatureDialog" timestamp="1602676303781">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="803" y="286" key="refactoring.ChangeSignatureDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602676303781" />
   </component>
 </project>

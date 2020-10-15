@@ -17,6 +17,9 @@ class Personne extends EntityAbstract
     private DateTime $dateDeNaissance;
     private Profil $profil;
     private Categorie $categorie;
+    private String $image;
+
+
 
     /**
      * Personne constructor.
@@ -26,6 +29,7 @@ class Personne extends EntityAbstract
      * @param DateTime $dateDeNaissance
      * @param \App\Entity\Profil $profil
      * @param \App\Entity\Categorie $categorie
+     * @param String $image = "default"
      * @throws Exception
      */
     public function __construct(
@@ -34,7 +38,8 @@ class Personne extends EntityAbstract
         string $mail,
         DateTime $dateDeNaissance,
         Profil $profil,
-        Categorie $categorie
+        Categorie $categorie,
+        String $image = "default"
     )
     {
         EntityAbstract::isNotEmpty($nom);
@@ -99,5 +104,13 @@ class Personne extends EntityAbstract
     public function getDateDeNaissance(): DateTime
     {
         return $this->dateDeNaissance;
+    }
+
+    /**
+     * @return String
+     */
+    public function getImage(): string
+    {
+        return $this->image;
     }
 }
