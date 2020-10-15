@@ -20,26 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c900f4ca-dd36-4ddd-8491-8f2312ba17d9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/img/ico.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Passage.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/BDD.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Entity/PassageTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Model/BDDTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/LogitudCS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LogitudCS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.php_cs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.php_cs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Categorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Categorie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Epreuve.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Epreuve.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Personne.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Personne.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Profil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utility/EntityAbstract.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utility/EntityAbstract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/template/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/template/layout.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Entity/EpreuveTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entity/EpreuveTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Entity/PersonneTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entity/PersonneTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Result/resultat.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Result/resultat.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +169,7 @@
       <workItem from="1602589835228" duration="13703000" />
       <workItem from="1602656836579" duration="7414000" />
       <workItem from="1602679008528" duration="7375000" />
-      <workItem from="1602743083801" duration="7639000" />
+      <workItem from="1602743083801" duration="8348000" />
     </task>
     <servers />
   </component>

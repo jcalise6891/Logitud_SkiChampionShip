@@ -17,6 +17,7 @@ class Personne extends EntityAbstract
     private DateTime $dateDeNaissance;
     private Profil $profil;
     private Categorie $categorie;
+    private Passage $passage;
     private String $image;
 
 
@@ -63,7 +64,7 @@ class Personne extends EntityAbstract
      */
     public function getCategorie():string
     {
-        return $this->categorie->getNom();
+        return $this->categorie->getCategorieNom();
     }
 
     /**
@@ -71,7 +72,7 @@ class Personne extends EntityAbstract
      */
     public function getProfil():string
     {
-        return $this->profil->getNom();
+        return $this->profil->getProfilNom();
     }
 
     /**
@@ -112,5 +113,19 @@ class Personne extends EntityAbstract
     public function getImage(): string
     {
         return $this->image;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPassage():array{
+        $this->passage->getTime();
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function setPassage(){
+        $this->passage->addTime();
     }
 }
