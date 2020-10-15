@@ -1,0 +1,26 @@
+{
+  "name": "logitud_skichampionship",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcalise6891/Logitud_SkiChampionShip.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcalise6891/Logitud_SkiChampionShip/issues"
+  },
+  "homepage": "https://github.com/jcalise6891/Logitud_SkiChampionShip#readme"
+}
