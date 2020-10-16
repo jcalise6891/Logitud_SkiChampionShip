@@ -20,13 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c900f4ca-dd36-4ddd-8491-8f2312ba17d9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/scss/app.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/logitudLogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/scss/_navbar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/EpreuveController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/IndexController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/LogitudCS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LogitudCS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.php_cs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.php_cs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/template/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/template/layout.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +50,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="UML Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -113,6 +121,9 @@
       <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ibBRJmMprpnKucUGznGealKFn3" />
@@ -131,13 +142,16 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary" value="PHPUnit" />
     <property name="last.edited.regexp" value="Catégorie\Model\Pute&#10;&#10;" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../OnlineAdvisor" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../OnlineGames" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\UwAmp\www\Logitud_SkiChampionShip" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\UwAmp\www\Logitud_SkiChampionShip\src\Abstract" />
       <recent name="E:\UwAmp\www\Logitud_SkiChampionShip\tests\Entity" />
@@ -177,7 +191,10 @@
       <workItem from="1602589835228" duration="13703000" />
       <workItem from="1602656836579" duration="7414000" />
       <workItem from="1602679008528" duration="7375000" />
-      <workItem from="1602743083801" duration="13867000" />
+      <workItem from="1602743083801" duration="15727000" />
+      <workItem from="1602848327276" duration="2581000" />
+      <workItem from="1602851707703" duration="1854000" />
+      <workItem from="1602853590504" duration="5204000" />
     </task>
     <servers />
   </component>
@@ -208,10 +225,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="540" y="180" key="#Test_Frameworks/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602513948241" />
-    <state x="710" y="327" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602508422382">
+    <state x="710" y="327" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602856619573">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="710" y="327" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602508422382" />
+    <state x="710" y="327" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602856619573" />
     <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser" timestamp="1602750823128">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -236,10 +253,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="629" y="303" key="EditFileWatcherDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602766848252" />
-    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1602747434173">
+    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1602857802110">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602747434173" />
+    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602857802110" />
     <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1602516617869">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -256,23 +273,27 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602516617869" />
-    <state x="730" y="248" key="NewPhpClassDialog" timestamp="1602750732153">
+    <state x="730" y="248" key="NewPhpClassDialog" timestamp="1602856628988">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="730" y="248" key="NewPhpClassDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602750732153" />
+    <state x="730" y="248" key="NewPhpClassDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602856628988" />
     <state x="794" y="448" key="NewPhpFileDialog" timestamp="1602595104395">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="794" y="448" key="NewPhpFileDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602595104395" />
-    <state x="461" y="170" width="1288" height="710" key="SettingsEditor" timestamp="1602747425529">
+    <state x="461" y="170" width="1288" height="710" key="SettingsEditor" timestamp="1602851463696">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="461" y="170" key="SettingsEditor/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602747425529" />
+    <state x="461" y="170" key="SettingsEditor/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602851463696" />
     <state x="461" y="170" width="1288" height="710" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1602166694487" />
     <state x="709" y="269" width="667" height="708" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1602751825818">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="709" y="269" width="667" height="708" key="com.jetbrains.php.test.PhpNewTestDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602751825818" />
+    <state x="2167" y="-13" width="1736" height="866" maximized="true" key="dock-window-1" timestamp="1602853890002">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2167" y="-13" width="1736" height="866" maximized="true" key="dock-window-1/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1602853890002" />
     <state x="803" y="286" key="refactoring.ChangeSignatureDialog" timestamp="1602676303781">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

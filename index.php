@@ -4,17 +4,15 @@ require_once(dirname(__FILE__)."/vendor/autoload.php");
 
 use App\Routing\Router;
 use Symfony\Component\HttpFoundation\Request;
-use App\Model\BDD;
-use App\Entity\Categorie;
 
 $request = Request::createFromGlobals();
 $url = $request->get("url");
 $router = new Router($url);
 
-try{
-    $router->get('/','Hello');
-}catch (Exception $e){
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+$router->get('/', "Index#showIndex");
 
-require(dirname(__FILE__)."/tests/result/resultat.html");
+try {
+    $router->run();
+} catch (\Exception $e) {
+    echo 'Exception error : '.$e->getMessage();
+}

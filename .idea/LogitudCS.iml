@@ -9,7 +9,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/clue/term-react" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/clue/utf8-react" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/annotations" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/evenement/evenement" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/jolicode/jolinotif" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs/deep-copy" />
