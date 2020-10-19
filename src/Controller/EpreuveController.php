@@ -7,23 +7,40 @@ use App\Entity\Epreuve;
 use App\Model\BDD;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
+use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
 
-
-class EpreuveController
+class EpreuveController extends MainController
 {
-    private Request $request;
+    private Environment $twig;
 
     public function __construct(){
-        $this->request = Request::createFromGlobals();
+        $this->twig = parent::getTwig();
     }
 
-    public function addEpreuve(){
+    /**
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function showEpreuve(){
+        echo $this->twig->render('epreuve/addEpreuve.html.twig');
+    }
+
+    public function testParametre($request, $attributes){
+        dump($request);
+        dump($attributes);
+    }
+
+    public function addEpreuve($request){
         try{
-            if(is_string($this->request->get('submit'))){
+            if(is_string($request->get('submit'))){
                 $newEpreuve= new Epreuve(
-                    $this->request->get('epreuveNom'),
-                    $this->request->get('epreuveDate')
+                    $request->get('epreuveNom'),
+                    $request->get('epreuveDate')
                 );
                 $connexion = new BDD('logitudski','localhost','3307','root','root');
                 $db =$connexion->connectToBDD();
@@ -36,9 +53,9 @@ class EpreuveController
         }
     }
 
-    public function deleteEpreuve(){
+    public function deleteEpreuve($request){
         try{
-            if(is_string($this->request->get('oui'))){
+            if(is_string($request->get('oui'))){
                 echo 'hello';
             }
         }catch (Exception $e){

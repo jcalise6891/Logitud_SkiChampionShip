@@ -2,17 +2,25 @@
 
 require_once(dirname(__FILE__)."/vendor/autoload.php");
 
-use App\Routing\Router;
+
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Loader\YamlFileLoader;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Matcher\UrlMatcher;
+use Symfony\Component\Routing\RequestContext;
+
+$fileLocator = new FileLocator([__DIR__.'/src/Config/']);
+$loader = new YamlFileLoader($fileLocator);
+$routes = $loader->load('routes.yaml');
 
 $request = Request::createFromGlobals();
-$url = $request->get("url");
-$router = new Router($url);
+$context = new RequestContext();
+$context->fromRequest($request);
+$matcher = new UrlMatcher($routes,$context);
 
-$router->get('/', "Index#showIndex");
+$attributes = $matcher->match($request->getPathInfo());
+$object = explode('::', $attributes['_controller']);
+$class = $object[0];
 
-try {
-    $router->run();
-} catch (\Exception $e) {
-    echo 'Exception error : '.$e->getMessage();
-}
+call_user_func_array([new $class(), $object[1]], [$request, $attributes]);

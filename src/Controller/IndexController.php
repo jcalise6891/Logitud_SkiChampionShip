@@ -29,7 +29,7 @@ class IndexController extends MainController
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function showIndex()
+    public function showIndex($request)
     {
         echo $this->twig->render('index.html.twig');
     }

@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
+use Symfony\Component\Routing\Annotation\Route;
 
 abstract class MainController
 {
