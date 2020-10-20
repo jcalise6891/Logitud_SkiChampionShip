@@ -11,7 +11,7 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
-class IndexController extends MainController
+class IndexController extends AbstractMainController
 {
     private Environment $twig;
     private Session $session;

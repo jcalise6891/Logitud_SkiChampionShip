@@ -3,9 +3,9 @@ index:
   defaults: { _controller: App\Controller\IndexController::showIndex }
 
 addEpreuve:
-  path: /addEpreuve
-  defaults: { _controller: App\Controller\EpreuveController::showEpreuve }
+  path: /epreuveList
+  defaults: { _controller: App\Controller\EpreuveController::retrieveEpreuveList }
 
 testParametre:
   path: /epreuve/{id}
-  defaults: { _controller: App\Controller\EpreuveController::testParametre}
+  defaults: { _controller: App\Controller\EpreuveController::}

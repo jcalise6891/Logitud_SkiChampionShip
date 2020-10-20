@@ -7,7 +7,7 @@ use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 use Symfony\Component\Routing\Annotation\Route;
 
-abstract class MainController
+abstract class AbstractMainController
 {
     protected static $twigInstance = null;
 

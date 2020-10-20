@@ -49,6 +49,9 @@ class BDD extends EntityAbstract
         return new self($db, $dbHost, $dbPort, $dbUser, $dbPass);
     }
 
+    /**
+     * @return false|PDO
+     */
     public function connectToBDD()
     {
         try {
@@ -65,6 +68,20 @@ class BDD extends EntityAbstract
 
     /**
      * @param PDO $pdo
+     * @param string $entityName
+     * @return array
+     */
+    public function getEntityListFromBDD(PDO $pdo, string $entityName):array
+    {
+        $sql = 'SELECT * FROM '.$entityName;
+        $query = $pdo->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * @param PDO $pdo
      * @param object $object
      * @return bool
      * @throws Exception
@@ -72,8 +89,8 @@ class BDD extends EntityAbstract
     public function addToBDD(PDO $pdo, object $object)
     {
         $stringClass = get_class($object);
-        $exploded = explode('\\',$stringClass);
-        switch (end($exploded)){
+        $exploded = explode('\\', $stringClass);
+        switch (end($exploded)) {
            case 'Profil':
                return $object->getProfilNom();
             case 'Categorie':

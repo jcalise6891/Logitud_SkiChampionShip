@@ -1,0 +1,52 @@
+{% extends 'template/layout.html.twig' %}
+
+{% block body %}
+    {% if epreuveList|length !=0 %}
+        <div class="container m-auto">
+            <div class="row d-flex m-auto">
+                <div class="col-12">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Epreuve</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Nombre de Participants</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for epreuve in epreuveList %}
+                        <tr>
+                            <th scope="row">{{ epreuve.ID }}</th>
+                            <td>{{ epreuve.nom }}</td>
+                            <td>{{ epreuve.date }}</td>
+                            <td>2.846</td>
+                            <td>
+                                <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                                <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                                <button
+                                        type="button"
+                                        data-toggle="modal"
+                                        data-target="#exampleModal"
+                                        class="btn btn-danger">
+                                        <i class="far fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                            {% set entity = epreuve %}
+                            {% include 'template/confirmModal.html.twig' with entity %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% else %}
+            <div class="row d-flex m-auto">
+                <div class="col-12  text-center">
+                  <a href="#">Aucune epreuve n'est disponbible, voulez vous en créer une ?</a>
+                </div>
+            </div>
+    {% endif %}
+{% endblock %}

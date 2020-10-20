@@ -12,12 +12,15 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
-
-class EpreuveController extends MainController
+class EpreuveController extends AbstractMainController
 {
     private Environment $twig;
 
-    public function __construct(){
+    /**
+     * EpreuveController constructor.
+     */
+    public function __construct()
+    {
         $this->twig = parent::getTwig();
     }
 
@@ -26,39 +29,55 @@ class EpreuveController extends MainController
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function showEpreuve(){
-        echo $this->twig->render('epreuve/addEpreuve.html.twig');
+    public function retrieveEpreuveList()
+    {
+        $connexion = new BDD(
+            'logitudski',
+            'localhost',
+            '3307',
+            'root',
+            'root'
+        );
+        $db = $connexion->connectToBDD();
+        $result = $connexion->getEntityListFromBDD($db, 'epreuve');
+
+
+        echo $this->twig->render('epreuve/showEpreuve.html.twig', ['epreuveList' => $result]);
     }
 
-    public function testParametre($request, $attributes){
-        dump($request);
-        dump($attributes);
-    }
-
-    public function addEpreuve($request){
-        try{
-            if(is_string($request->get('submit'))){
-                $newEpreuve= new Epreuve(
+    /**
+     * @param $request
+     * @return bool
+     */
+    public function addEpreuve($request)
+    {
+        try {
+            if (is_string($request->get('submit'))) {
+                $newEpreuve = new Epreuve(
                     $request->get('epreuveNom'),
                     $request->get('epreuveDate')
                 );
-                $connexion = new BDD('logitudski','localhost','3307','root','root');
-                $db =$connexion->connectToBDD();
-                return $connexion->addToBDD($db,$newEpreuve);
+                $connexion = new BDD('logitudski', 'localhost', '3307', 'root', 'root');
+                $db = $connexion->connectToBDD();
+                return $connexion->addToBDD($db, $newEpreuve);
             } else {
                 throw new Exception("Erreur: Ne peux pas créer l'épreuve");
             }
-        }catch (Exception $e){
+        } catch (Exception $e) {
             echo 'Exception : ', $e->getMessage(), "<br>";
         }
     }
 
-    public function deleteEpreuve($request){
-        try{
-            if(is_string($request->get('oui'))){
+    /**
+     * @param $request
+     */
+    public function deleteEpreuve($request)
+    {
+        try {
+            if (is_string($request->get('oui'))) {
                 echo 'hello';
             }
-        }catch (Exception $e){
+        } catch (Exception $e) {
             echo 'Exception : ', $e->getMessage(), "<br>";
         }
     }
