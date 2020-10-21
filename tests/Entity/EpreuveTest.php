@@ -52,7 +52,7 @@ class EpreuveTest extends TestCase
             'jean.michel@test.com',
             new DateTime('yesterday'),
             new Profil('profTest'),
-            new Categorie('catTest')
+            new Categorie(28,'catTest')
         );
 
         $epreuveTest->addParticipant($personneTest);
@@ -74,7 +74,7 @@ class EpreuveTest extends TestCase
             'jean.michel@test.com',
             new DateTime('yesterday'),
             new Profil('profTest'),
-            new Categorie('catTest')
+            new Categorie(28,'catTest')
         );
 
         $epreuveTest->addParticipant($personneTest);
@@ -94,7 +94,7 @@ class EpreuveTest extends TestCase
             'jean.michel@test.com',
             new DateTime('yesterday'),
             new Profil('profTest'),
-            new Categorie('catTest')
+            new Categorie(52,'catTest')
         );
 
         $epreuveTest->deleteParticipant($personneTest);

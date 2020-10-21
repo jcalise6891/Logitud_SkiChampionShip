@@ -7,6 +7,7 @@ use Exception;
 
 class Categorie extends EntityAbstract
 {
+    private int $ID;
     private string $nom;
 
     /**
@@ -14,20 +15,23 @@ class Categorie extends EntityAbstract
      * @param $nom
      * @throws Exception
      */
-    public function __construct($nom)
+    public function __construct($ID, $nom)
     {
+        EntityAbstract::isNotEmpty($ID);
+        $this->ID = $ID;
         EntityAbstract::isNotEmpty($nom);
         $this->nom = $nom;
     }
 
     /**
+     * @param int $id
      * @param String $nom
      * @return $this
      * @throws Exception
      */
-    public static function fromString(string $nom): self
+    public static function fromString(int $id, string $nom): self
     {
-        return new self($nom);
+        return new self($id,$nom);
     }
 
     public function getCategorieNom()

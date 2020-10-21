@@ -18,7 +18,7 @@ class PersonneTest extends TestCase
     {
         $dateTest = new DateTime('yesterday');
         $profilTest = new Profil('ProfilTest');
-        $categorieTest = new Categorie('CategorieTest');
+        $categorieTest = new Categorie(52,'CategorieTest');
 
         $testPersonne = new Personne(
             15,
@@ -42,7 +42,7 @@ class PersonneTest extends TestCase
 
         $dateTest = new DateTime('yesterday');
         $profilTest = new Profil('ProfilTest');
-        $categorieTest = new Categorie('CategorieTest');
+        $categorieTest = new Categorie(52,'CategorieTest');
 
         $testPersonne = new Personne(
             15,
@@ -76,7 +76,7 @@ class PersonneTest extends TestCase
     {
         $dateTestarray = new DateTimeImmutable();
         $profilTest = new Profil('ProTest');
-        $categorieTest = new Categorie('CatTest');
+        $categorieTest = new Categorie(52,'CatTest');
 
         return array(
             array(

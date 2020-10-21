@@ -28,7 +28,7 @@ class BDDTest extends TestCase
     {
         $BDDTest = new BDD('test', 'test', '52', 'root', 'root');
         $PDOMock = $this->createMock(PDO::class);
-        $catTest = new Categorie('catTest');
+        $catTest = new Categorie(52,'catTest');
         $this->assertIsString($BDDTest->addToBDD($PDOMock, $catTest));
     }
 

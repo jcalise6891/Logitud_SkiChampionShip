@@ -11,13 +11,13 @@ class CategorieTest extends TestCase
     {
         $this->assertInstanceOf(
             Categorie::class,
-            Categorie::fromString('CategorieTest')
+            Categorie::fromString(15,'CategorieTest')
         );
     }
 
     public function testCategorieIsInvalid()
     {
         $this->expectException(\Exception::class);
-        Categorie::fromString('');
+        Categorie::fromString(15,'');
     }
 }
