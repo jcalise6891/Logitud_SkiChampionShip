@@ -46,6 +46,7 @@ class EpreuveTest extends TestCase
         $epreuveTest = new Epreuve('2020Tournament', new DateTime('tomorrow'));
 
         $personneTest = new Personne(
+            15,
             'jean',
             'michel',
             'jean.michel@test.com',
@@ -67,6 +68,7 @@ class EpreuveTest extends TestCase
         $epreuveTest = new Epreuve('2020Tournament', new DateTime('tomorrow'));
 
         $personneTest = new Personne(
+            15,
             'jean',
             'michel',
             'jean.michel@test.com',
@@ -86,6 +88,7 @@ class EpreuveTest extends TestCase
         $epreuveTest = new Epreuve('2020Tournament', new DateTime('tomorrow'));
 
         $personneTest = new Personne(
+            15,
             'jean',
             'michel',
             'jean.michel@test.com',

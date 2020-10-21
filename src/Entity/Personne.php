@@ -8,6 +8,8 @@ use Exception;
 
 class Personne extends EntityAbstract
 {
+
+    private int $ID;
     private string $nom;
     private string $prenom;
     private string $mail;
@@ -30,6 +32,7 @@ class Personne extends EntityAbstract
      * @throws Exception
      */
     public function __construct(
+        int $ID,
         string $nom,
         string $prenom,
         string $mail,
@@ -39,6 +42,9 @@ class Personne extends EntityAbstract
         string $image = "default"
     )
     {
+        EntityAbstract::isNotEmpty($ID);
+        $this->ID = $ID;
+
         EntityAbstract::isNotEmpty($nom);
         $this->nom = $nom;
 

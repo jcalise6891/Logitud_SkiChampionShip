@@ -21,6 +21,7 @@ class PersonneTest extends TestCase
         $categorieTest = new Categorie('CategorieTest');
 
         $testPersonne = new Personne(
+            15,
             'Jean-Test',
             'Michel-Test',
             'jeanmichel@test.com',
@@ -44,6 +45,7 @@ class PersonneTest extends TestCase
         $categorieTest = new Categorie('CategorieTest');
 
         $testPersonne = new Personne(
+            15,
             '',
             'Michel-Test',
             'jeanmichel@test.com',
@@ -63,10 +65,10 @@ class PersonneTest extends TestCase
      * @throws Exception
      * @dataProvider provider
      */
-    public function testPersonneBirthdateIsInvalid($nom, $prenom, $mail, $birthdate, $profil, $categorie)
+    public function testPersonneBirthdateIsInvalid($id, $nom, $prenom, $mail, $birthdate, $profil, $categorie)
     {
         $this->expectException(Exception::class);
-        $personne = new Personne($nom, $prenom, $mail, $birthdate, $profil, $categorie);
+        $personne = new Personne($id, $nom, $prenom, $mail, $birthdate, $profil, $categorie);
         fwrite(STDERR, print_r($personne, TRUE));
     }
 
@@ -78,6 +80,7 @@ class PersonneTest extends TestCase
 
         return array(
             array(
+                15,
                 'Jean-Michel',
                 'test',
                 'jeanmichel@test.com',
@@ -86,6 +89,7 @@ class PersonneTest extends TestCase
                 $categorieTest
             ),
             array(
+                15,
                 'Jean-Michel',
                 'Test',
                 'jeanmichel@test.com',
