@@ -3,11 +3,12 @@
 
 namespace App\Controller;
 
+use App\Utility\EntityAbstract;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 use Symfony\Component\Routing\Annotation\Route;
 
-abstract class AbstractMainController
+abstract class AbstractMainController extends EntityAbstract
 {
     protected static $twigInstance = null;
 

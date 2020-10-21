@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\Epreuve;
 use App\Model\BDD;
+use App\Utility\EntityAbstract;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Twig\Environment;
@@ -45,6 +46,10 @@ class EpreuveController extends AbstractMainController
         echo $this->twig->render('epreuve/showEpreuve.html.twig', ['epreuveList' => $result]);
     }
 
+    public function showAddEpreuve(){
+        echo $this->twig->render('epreuve/addEpreuve.html.twig');
+    }
+
     /**
      * @param $request
      * @return bool
@@ -70,15 +75,25 @@ class EpreuveController extends AbstractMainController
 
     /**
      * @param $request
+     * @param $attributes
+     * @return bool
+     * @throws Exception
      */
-    public function deleteEpreuve($request)
+    public function deleteEpreuve($request, $attributes)
     {
-        try {
-            if (is_string($request->get('oui'))) {
-                echo 'hello';
-            }
-        } catch (Exception $e) {
-            echo 'Exception : ', $e->getMessage(), "<br>";
+        $epreuveToDelete = $attributes['id'];
+        $controllerArray = EntityAbstract::splitAtUpperCase($attributes['_controller']);
+        $entity = strtolower(end($controllerArray));
+
+        $connexion = new BDD('logitudski', 'localhost', '3307', 'root', 'root');
+        $pdo = $connexion->connectToBDD();
+        if($connexion->deleteFromBDD($pdo, $epreuveToDelete, $entity))
+        {
+            header('Location: ../../../../Logitud_SkiChampionShip/epreuveList');
+            return true;
+        }
+        else{
+            throw new Exception('Un probleme est survenue pendant la suppression');
         }
     }
 }

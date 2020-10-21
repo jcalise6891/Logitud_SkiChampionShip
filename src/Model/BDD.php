@@ -104,9 +104,12 @@ class BDD extends EntityAbstract
         }
     }
 
-    public function deleteFromBDD():bool
+    public function deleteFromBDD(PDO $pdo, string $id, string $entity):bool
     {
-        return true;
+       $sql = 'DELETE FROM '.$entity.' WHERE ID = :id';
+       $query = $pdo->prepare($sql);
+       $query->bindValue(':id',$id,PDO::PARAM_INT);
+       return $query->execute();
     }
 
     public function updateToBDD():bool

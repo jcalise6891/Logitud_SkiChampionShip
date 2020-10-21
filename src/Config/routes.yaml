@@ -2,10 +2,14 @@ index:
   path: /
   defaults: { _controller: App\Controller\IndexController::showIndex }
 
-addEpreuve:
+showEpreuve:
   path: /epreuveList
   defaults: { _controller: App\Controller\EpreuveController::retrieveEpreuveList }
 
-testParametre:
-  path: /epreuve/{id}
-  defaults: { _controller: App\Controller\EpreuveController::}
+showAddEpreuve:
+  path: /addEpreuve
+  defaults: { _controller: App\Controller\EpreuveController::showAddEpreuve }
+
+deleteEpreuve:
+  path: /deleteEpreuve/{id}
+  defaults: { _controller: App\Controller\EpreuveController::deleteEpreuve }

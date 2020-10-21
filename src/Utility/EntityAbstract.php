@@ -56,4 +56,12 @@ abstract class EntityAbstract
             throw new Exception('Birthdate is not valid');
         }
     }
+
+    /**
+     * @param $s
+     * @return array|false|string[]
+     */
+    protected static function splitAtUpperCase($s) {
+        return preg_split('/(?=[A-Z])/', $s, -1, PREG_SPLIT_NO_EMPTY);
+    }
 }
