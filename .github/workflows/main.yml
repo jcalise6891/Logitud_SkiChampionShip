@@ -22,6 +22,7 @@ jobs:
       - name: Cache Composer Downloads
         uses: actions/cache@v1
         with:
+          required-permission: admin
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
@@ -29,6 +30,7 @@ jobs:
       - name: Cache PHP dependencies
         uses: actions/cache@v1
         with:
+          required-permission: admin
           path: vendor
           key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
 
