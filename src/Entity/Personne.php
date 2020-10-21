@@ -1,25 +1,21 @@
 <?php
 
-
 namespace App\Entity;
 
-use DateTime;
-use App\Entity\Profil;
-use App\Entity\Categorie;
 use App\Utility\EntityAbstract;
+use DateTime;
 use Exception;
 
 class Personne extends EntityAbstract
 {
-    private String $nom;
-    private String $prenom;
-    private String $mail;
+    private string $nom;
+    private string $prenom;
+    private string $mail;
     private DateTime $dateDeNaissance;
     private Profil $profil;
     private Categorie $categorie;
     private Passage $passage;
-    private String $image;
-
+    private string $image;
 
 
     /**
@@ -40,9 +36,8 @@ class Personne extends EntityAbstract
         DateTime $dateDeNaissance,
         Profil $profil,
         Categorie $categorie,
-        String $image = "default"
-    )
-    {
+        string $image = "default"
+    ) {
         EntityAbstract::isNotEmpty($nom);
         $this->nom = $nom;
 
@@ -52,7 +47,7 @@ class Personne extends EntityAbstract
         EntityAbstract::IsMailValid($mail);
         $this->mail = $mail;
 
-        EntityAbstract::IsBirthDateValid($dateDeNaissance);
+        EntityAbstract::isBirthDateValid($dateDeNaissance);
         $this->dateDeNaissance = $dateDeNaissance;
 
         $this->profil = $profil;
@@ -62,7 +57,7 @@ class Personne extends EntityAbstract
     /**
      * @return String
      */
-    public function getCategorie():string
+    public function getCategorie(): string
     {
         return $this->categorie->getCategorieNom();
     }
@@ -70,7 +65,7 @@ class Personne extends EntityAbstract
     /**
      * @return String
      */
-    public function getProfil():string
+    public function getProfil(): string
     {
         return $this->profil->getProfilNom();
     }
@@ -118,14 +113,16 @@ class Personne extends EntityAbstract
     /**
      * @return array
      */
-    public function getPassage():array{
+    public function getPassage(): array
+    {
         $this->passage->getTime();
     }
 
     /**
      * @throws Exception
      */
-    public function setPassage(){
+    public function setPassage()
+    {
         $this->passage->addTime();
     }
 }

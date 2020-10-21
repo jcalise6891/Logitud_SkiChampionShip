@@ -3,15 +3,14 @@
 require_once(dirname(__FILE__) . "/vendor/autoload.php");
 
 
+use App\Controller\ErrorController;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Exception\MethodNotAllowedException;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Loader\YamlFileLoader;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
-use App\Controller\ErrorController;
 
 
 $fileLocator = new FileLocator([__DIR__ . '/src/Config/']);
@@ -30,9 +29,9 @@ try {
 
     call_user_func_array([new $class(), $object[1]], [$request, $attributes]);
 } catch (ResourceNotFoundException $exception) {
-    $response = call_user_func( new ErrorController());
+    $response = call_user_func(new ErrorController());
     $response->send();
-} catch( MethodNotAllowedException $exception){
+} catch (MethodNotAllowedException $exception) {
     echo $exception->getMessage();
 }
 

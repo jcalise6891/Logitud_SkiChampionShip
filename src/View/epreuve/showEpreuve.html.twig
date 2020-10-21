@@ -17,23 +17,23 @@
                         </thead>
                         <tbody>
                         {% for epreuve in epreuveList %}
-                        <tr>
-                            <th scope="row">{{ epreuve.ID }}</th>
-                            <td>{{ epreuve.nom }}</td>
-                            <td>{{ epreuve.date }}</td>
-                            <td>2.846</td>
-                            <td>
-                                <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-                                <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                                <button
-                                        type="button"
-                                        data-toggle="modal"
-                                        data-target="#exampleModal"
-                                        class="btn btn-danger">
+                            <tr>
+                                <th scope="row">{{ epreuve.ID }}</th>
+                                <td>{{ epreuve.nom }}</td>
+                                <td>{{ epreuve.date }}</td>
+                                <td>2.846</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                                    <button
+                                            type="button"
+                                            data-toggle="modal"
+                                            data-target="#exampleModal"
+                                            class="btn btn-danger">
                                         <i class="far fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
+                                    </button>
+                                </td>
+                            </tr>
                             {% set entity = epreuve %}
                             {% include 'template/confirmModal.html.twig' with entity %}
                         {% endfor %}
@@ -43,10 +43,10 @@
             </div>
         </div>
     {% else %}
-            <div class="row d-flex m-auto">
-                <div class="col-12  text-center">
-                  <a href="addEpreuve">Aucune epreuve n'est disponbible, voulez-vous en créer une ?</a>
-                </div>
+        <div class="row d-flex m-auto">
+            <div class="col-12  text-center">
+                <a href="addEpreuve">Aucune epreuve n'est disponbible, voulez-vous en créer une ?</a>
             </div>
+        </div>
     {% endif %}
 {% endblock %}

@@ -3,18 +3,19 @@
 namespace Entity;
 
 use App\Entity\Categorie;
+use App\Entity\Personne;
 use App\Entity\Profil;
 use DateTime;
 use DateTimeImmutable;
 use Exception;
 use PHPUnit\Framework\TestCase;
-use App\Entity\Personne;
 
 class PersonneTest extends TestCase
 {
 
 
-    public function testPersonneIsValid(){
+    public function testPersonneIsValid()
+    {
         $dateTest = new DateTime('yesterday');
         $profilTest = new Profil('ProfilTest');
         $categorieTest = new Categorie('CategorieTest');
@@ -29,11 +30,12 @@ class PersonneTest extends TestCase
         );
 
         $this->assertInstanceOf(Personne::class,
-        $testPersonne);
+            $testPersonne);
     }
 
 
-    public function testPersonneIsInvalid(){
+    public function testPersonneIsInvalid()
+    {
 
         $this->expectException(Exception::class);
 
@@ -61,13 +63,15 @@ class PersonneTest extends TestCase
      * @throws Exception
      * @dataProvider provider
      */
-    public function testPersonneBirthdateIsInvalid($nom,$prenom,$mail,$birthdate,$profil,$categorie){
+    public function testPersonneBirthdateIsInvalid($nom, $prenom, $mail, $birthdate, $profil, $categorie)
+    {
         $this->expectException(Exception::class);
-        $personne = new Personne($nom,$prenom,$mail,$birthdate,$profil,$categorie);
-        fwrite(STDERR,print_r($personne,TRUE));
+        $personne = new Personne($nom, $prenom, $mail, $birthdate, $profil, $categorie);
+        fwrite(STDERR, print_r($personne, TRUE));
     }
 
-    public function provider(){
+    public function provider()
+    {
         $dateTestarray = new DateTimeImmutable();
         $profilTest = new Profil('ProTest');
         $categorieTest = new Categorie('CatTest');
@@ -77,7 +81,7 @@ class PersonneTest extends TestCase
                 'Jean-Michel',
                 'test',
                 'jeanmichel@test.com',
-                (new DateTime)->setDate(1891,05,28),
+                (new DateTime)->setDate(1891, 05, 28),
                 $profilTest,
                 $categorieTest
             ),
@@ -85,7 +89,7 @@ class PersonneTest extends TestCase
                 'Jean-Michel',
                 'Test',
                 'jeanmichel@test.com',
-                (new DateTime)->setDate(2050,02,15),
+                (new DateTime)->setDate(2050, 02, 15),
                 $profilTest,
                 $categorieTest
             )

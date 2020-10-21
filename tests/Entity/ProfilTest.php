@@ -8,14 +8,16 @@ use PHPUnit\Framework\TestCase;
 
 class ProfilTest extends TestCase
 {
-    public function testProfilIsValid(){
+    public function testProfilIsValid()
+    {
         $this->assertInstanceOf(
             Profil::class,
             Profil::fromString('ProfilTest')
         );
     }
 
-    public function testProfilIsInvalid(){
+    public function testProfilIsInvalid()
+    {
         $this->expectException(Exception::class);
         Profil::fromString('');
     }

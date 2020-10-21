@@ -1,13 +1,11 @@
 <?php
 
-
 namespace App\Controller;
 
 use App\Entity\Epreuve;
 use App\Model\BDD;
 use App\Utility\EntityAbstract;
 use Exception;
-use Symfony\Component\HttpFoundation\Request;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -46,7 +44,8 @@ class EpreuveController extends AbstractMainController
         echo $this->twig->render('epreuve/showEpreuve.html.twig', ['epreuveList' => $result]);
     }
 
-    public function showAddEpreuve(){
+    public function showAddEpreuve()
+    {
         echo $this->twig->render('epreuve/addEpreuve.html.twig');
     }
 
@@ -87,12 +86,10 @@ class EpreuveController extends AbstractMainController
 
         $connexion = new BDD('logitudski', 'localhost', '3307', 'root', 'root');
         $pdo = $connexion->connectToBDD();
-        if($connexion->deleteFromBDD($pdo, $epreuveToDelete, $entity))
-        {
+        if ($connexion->deleteFromBDD($pdo, $epreuveToDelete, $entity)) {
             header('Location: ../../../../Logitud_SkiChampionShip/epreuveList');
             return true;
-        }
-        else{
+        } else {
             throw new Exception('Un probleme est survenue pendant la suppression');
         }
     }

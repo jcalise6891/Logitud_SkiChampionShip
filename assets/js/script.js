@@ -1,8 +1,7 @@
-import moment from 'moment'
 import 'moment/locale/fr'
 
-$(function(){
+$(function () {
     $('#datetimepicker').datetimepicker({
-        locale : 'fr'
+        locale: 'fr'
     });
 });

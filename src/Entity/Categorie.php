@@ -1,22 +1,21 @@
 <?php
 
-
 namespace App\Entity;
-
 
 use App\Utility\EntityAbstract;
 use Exception;
 
 class Categorie extends EntityAbstract
 {
-    private String $nom;
+    private string $nom;
 
     /**
      * Categorie constructor.
      * @param $nom
      * @throws Exception
      */
-    public function __construct($nom){
+    public function __construct($nom)
+    {
         EntityAbstract::isNotEmpty($nom);
         $this->nom = $nom;
     }
@@ -26,11 +25,13 @@ class Categorie extends EntityAbstract
      * @return $this
      * @throws Exception
      */
-    public static function fromString(String $nom):self{
+    public static function fromString(string $nom): self
+    {
         return new self($nom);
     }
 
-    public function getCategorieNom(){
+    public function getCategorieNom()
+    {
         return $this->nom;
     }
 }

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Entity;
 
 use App\Utility\EntityAbstract;
@@ -18,7 +17,7 @@ class Epreuve extends EntityAbstract
      * @param DateTime $date ;
      * @throws Exception;
      */
-    public function __construct(String $nom, DateTime $date)
+    public function __construct(string $nom, DateTime $date)
     {
         EntityAbstract::isNotEmpty($nom);
         $this->nom = $nom;
@@ -32,7 +31,7 @@ class Epreuve extends EntityAbstract
      * @return static
      * @throws Exception
      */
-    public static function fromString(String $nom, DateTime $date) :self
+    public static function fromString(string $nom, DateTime $date): self
     {
         return new self($nom, $date);
     }
@@ -56,7 +55,7 @@ class Epreuve extends EntityAbstract
     /**
      * @return array
      */
-    public function getParticipants():array
+    public function getParticipants(): array
     {
         return $this->participants;
     }

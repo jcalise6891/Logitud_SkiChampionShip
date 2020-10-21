@@ -43,7 +43,7 @@ class EpreuveTest extends TestCase
 
     public function testParticipantIsAdded()
     {
-        $epreuveTest = new Epreuve('2020Tournament',new DateTime('tomorrow'));
+        $epreuveTest = new Epreuve('2020Tournament', new DateTime('tomorrow'));
 
         $personneTest = new Personne(
             'jean',
@@ -57,13 +57,14 @@ class EpreuveTest extends TestCase
         $epreuveTest->addParticipant($personneTest);
         $participantList = $epreuveTest->getParticipants();
         $first = $participantList[0];
-        $this->assertInstanceOf(Personne::class,$first);
+        $this->assertInstanceOf(Personne::class, $first);
     }
 
-    public function testShouldNotAddTheSamePerson(){
+    public function testShouldNotAddTheSamePerson()
+    {
         $this->expectException(Exception::class);
 
-        $epreuveTest = new Epreuve('2020Tournament',new DateTime('tomorrow'));
+        $epreuveTest = new Epreuve('2020Tournament', new DateTime('tomorrow'));
 
         $personneTest = new Personne(
             'jean',
@@ -78,10 +79,11 @@ class EpreuveTest extends TestCase
         $epreuveTest->addParticipant($personneTest);
     }
 
-    public function testShouldNotDeleteNonParticipant(){
+    public function testShouldNotDeleteNonParticipant()
+    {
         $this->expectException(Exception::class);
 
-        $epreuveTest = new Epreuve('2020Tournament',new DateTime('tomorrow'));
+        $epreuveTest = new Epreuve('2020Tournament', new DateTime('tomorrow'));
 
         $personneTest = new Personne(
             'jean',

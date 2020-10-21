@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Controller;
-
 
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
@@ -23,7 +21,6 @@ class ErrorController extends AbstractMainController
     public function __invoke()
     {
         $this->twig = parent::getTwig();
-        return new Response($this->twig->render('exception/error404.html.twig'),404);
+        return new Response($this->twig->render('exception/error404.html.twig'), 404);
     }
-
 }

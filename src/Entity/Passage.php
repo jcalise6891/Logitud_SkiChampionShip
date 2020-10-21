@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Entity;
 
 use DateTime;
@@ -9,7 +8,6 @@ use Exception;
 class Passage
 {
     private array $time = [];
-
 
 
     /**
