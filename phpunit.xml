@@ -1,0 +1,9 @@
+<phpunit bootsrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="EntityTest">
+            <directory>
+                tests/
+            </directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
