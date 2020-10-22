@@ -44,11 +44,3 @@ jobs:
       # You may pin to the exact commit or the version.
       # uses: owenvoke/phpunit-action@41a9b79e02fea917da3974de5272dd7ceac425b8
         uses: owenvoke/phpunit-action@v1.0.0
-      
-      - name: PHPCodeSniffer
-        # You may pin to the exact commit or the version.
-        # uses: rtCamp/action-phpcs-inspection@22db6a060f87219d50bcf120d47e8c122a930906
-        uses: rtCamp/action-phpcs-inspection@v1.0.0
-
-
-    
