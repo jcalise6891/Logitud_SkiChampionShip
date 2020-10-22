@@ -1,7 +1,7 @@
 <phpunit bootstrap="vendor/autoload.php">
     <testsuites>
         <testsuite name="EntityTest">
-            <directory>
+            <directory phpVersion="7.4.9">
                 tests/
             </directory>
         </testsuite>
