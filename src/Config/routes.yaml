@@ -13,3 +13,7 @@ showAddEpreuve:
 deleteEpreuve:
   path: /deleteEpreuve/{id}
   defaults: { _controller: App\Controller\EpreuveController::deleteEpreuve }
+
+addEpreuve:
+  path: /addEpreuve/add
+  defaults: { _controller: App\Controller\EpreuveController::addEpreuve}

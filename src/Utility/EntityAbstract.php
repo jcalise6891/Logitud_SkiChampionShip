@@ -47,7 +47,6 @@ abstract class EntityAbstract
      */
     protected static function isBirthDateValid(DateTime $time)
     {
-
         $ts_startDate = strtotime("01-01-1920");
         $ts_endDate = strtotime('today');
         $ts_time = strtotime($time->format('d-m-Y'));
@@ -64,5 +63,17 @@ abstract class EntityAbstract
     protected static function splitAtUpperCase($s)
     {
         return preg_split('/(?=[A-Z])/', $s, -1, PREG_SPLIT_NO_EMPTY);
+    }
+
+    protected static function strToDateTime(string $string): DateTime
+    {
+        return DateTime::createFromFormat(
+            'Y-m-d H:i',
+            str_replace(
+                'T',
+                ' ',
+                $string
+            )
+        );
     }
 }

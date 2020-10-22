@@ -17,7 +17,6 @@ class Categorie extends EntityAbstract
      */
     public function __construct($ID, $nom)
     {
-        EntityAbstract::isNotEmpty($ID);
         $this->ID = $ID;
         EntityAbstract::isNotEmpty($nom);
         $this->nom = $nom;
@@ -37,5 +36,10 @@ class Categorie extends EntityAbstract
     public function getCategorieNom()
     {
         return $this->nom;
+    }
+
+    public function getID()
+    {
+        return $this->ID;
     }
 }

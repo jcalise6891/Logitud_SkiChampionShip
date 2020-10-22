@@ -85,19 +85,37 @@ class BDD extends EntityAbstract
      * @return bool
      * @throws Exception
      */
-    public function addToBDD(PDO $pdo, object $object)
+    public function addToBDD(PDO $pdo, object $object):bool
     {
         $stringClass = get_class($object);
         $exploded = explode('\\', $stringClass);
         switch (end($exploded)) {
             case 'Profil':
-                return $object->getProfilNom();
+                $sql = "INSERT INTO profil (nom) VALUES (:nom)";
+                $query = $pdo->prepare($sql);
+                $query->bindValue(':nom', $object->getProfilNom());
+                return $query->execute();
             case 'Categorie':
-                return $object->getCategorieNom();
+                $sql = "INSERT INTO categorie (nom) VALUES (:nom)";
+                $query = $pdo->prepare($sql);
+                $query->bindValue(':nom', $object->getCategorieNom());
+                return $query->execute();
             case 'Personne':
-                return $object->getPrenom();
+                $sql = "INSERT INTO personne (nom, prenom, mail, dateDeNaissance, categorie, profil)
+                        VALUES (:nom, :prenom, :mail, :dateDeNaissance, :categorie, :profil)";
+                $query = $pdo->prepare($sql);
+                $query->bindValue(':nom', $object->getNom(),PDO::PARAM_STR);
+                $query->bindValue(':prenom', $object->getPrenom(),PDO::PARAM_STR);
+                $query->bindValue(':mail', $object->getMail(),PDO::PARAM_STR);
+                $query->bindValue(':dateDeNaissance', $object->getDateDeNaissance->format('Y-m-d'));
+                $query->bindValue(':categorie',$object->getCategorie()->getID());
+                $query->bindValue(':profil', $object->getProfil()->getID());
             case 'Epreuve':
-                return $object->getDate();
+                $sql = "INSERT INTO epreuve (nom, date) VALUES (:nom, :date)";
+                $query = $pdo->prepare($sql);
+                $query->bindValue(':nom', $object->getNom(), PDO::PARAM_STR);
+                $query->bindValue(':date', $object->getDate()->format('Y-m-d:H:i'));
+                return $query->execute();
             default:
                 throw new Exception('No valid object to add');
         }

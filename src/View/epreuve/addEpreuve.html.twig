@@ -1,14 +1,40 @@
 {% extends 'template/layout.html.twig' %}
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <div class="input-group date" id="datetimepicker" data-target-input="nearest">
-                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker"/>
-                        <div class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                        </div>
+    <div class="container m-auto">
+        <div class="row d-flex justify-content-center m-auto">
+        <!-- Grid column -->
+            <div class="col-8">
+                <div class="card ripe-malinka-gradient form-white px-1">
+                    <div class="card-body">
+                        <!-- Form register -->
+                        <form method="post" role="form" action="/Logitud_SkiChampionShip/addEpreuve/add">
+                            <h2 class="text-center font-up font-bold py-4 white-text">Nouvelle Épreuve</h2>
+                            <div class="md-form">
+                                <i class="white-text">Nom</i>
+                                <input
+                                        type="text"
+                                        id="orangeForm-name2"
+                                        class="form-control"
+                                        placeholder="Nom de l'épreuve"
+                                        name="epreuveNom"
+                                >
+                                <label for="orangeForm-name2"></label>
+                            </div>
+                            <div class="md-form">
+                                <i class="white-text">Date</i>
+                                <input
+                                        type="datetime-local"
+                                        id="orangeForm-email2"
+                                        class="form-control"
+                                        name="epreuveDate"
+                                >
+                                <label for="orangeForm-email2"></label>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-outline-white waves-effect waves-light" name="submit">Créer</button>
+                            </div>
+                        </form>
+                        <!-- Form register -->
                     </div>
                 </div>
             </div>

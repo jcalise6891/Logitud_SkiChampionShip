@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Loader\YamlFileLoader;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
+use Pimple\Container;
 
 
 $fileLocator = new FileLocator([__DIR__ . '/src/Config/']);
@@ -21,6 +22,8 @@ $request = Request::createFromGlobals();
 $context = new RequestContext();
 $context->fromRequest($request);
 $matcher = new UrlMatcher($routes, $context);
+
+$container = new Container();
 
 try {
     $attributes = $matcher->match($request->getPathInfo());

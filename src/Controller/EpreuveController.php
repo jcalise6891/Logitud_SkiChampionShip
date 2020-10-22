@@ -10,6 +10,8 @@ use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+use Symfony\Component\HttpFoundation\Request;
+use DateTime;
 
 class EpreuveController extends AbstractMainController
 {
@@ -59,7 +61,7 @@ class EpreuveController extends AbstractMainController
             if (is_string($request->get('submit'))) {
                 $newEpreuve = new Epreuve(
                     $request->get('epreuveNom'),
-                    $request->get('epreuveDate')
+                    EntityAbstract::strToDateTime($request->get('epreuveDate'))
                 );
                 $connexion = new BDD('logitudski', 'localhost', '3307', 'root', 'root');
                 $db = $connexion->connectToBDD();
