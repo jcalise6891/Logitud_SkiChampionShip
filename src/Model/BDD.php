@@ -110,6 +110,7 @@ class BDD extends EntityAbstract
                 $query->bindValue(':dateDeNaissance', $object->getDateDeNaissance->format('Y-m-d'));
                 $query->bindValue(':categorie',$object->getCategorie()->getID());
                 $query->bindValue(':profil', $object->getProfil()->getID());
+                return $query->execute();
             case 'Epreuve':
                 $sql = "INSERT INTO epreuve (nom, date) VALUES (:nom, :date)";
                 $query = $pdo->prepare($sql);
