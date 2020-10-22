@@ -39,10 +39,8 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          
       - name: GitHub Action for PHPUnit
       # You may pin to the exact commit or the version.
       # uses: owenvoke/phpunit-action@41a9b79e02fea917da3974de5272dd7ceac425b8
         uses: owenvoke/phpunit-action@v1.0.0
-
-    
