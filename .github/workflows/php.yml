@@ -13,6 +13,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+            php-version: '7.4'
 
       - name: Validate composer.json and composer.lock
         run: composer validate
@@ -44,6 +46,5 @@ jobs:
       # You may pin to the exact commit or the version.
       # uses: owenvoke/phpunit-action@41a9b79e02fea917da3974de5272dd7ceac425b8
         uses: owenvoke/phpunit-action@v1.0.0
-        with:
-         php-version: '7.4'
+
     
