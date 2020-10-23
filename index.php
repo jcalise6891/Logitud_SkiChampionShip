@@ -30,7 +30,7 @@ try {
     $object = explode('::', $attributes['_controller']);
     $class = $object[0];
 
-    call_user_func_array([new $class(), $object[1]], [$request, $attributes]);
+    call_user_func_array([new $class(), $object[1]], [$request, $attributes,$container]);
 } catch (ResourceNotFoundException $exception) {
     $response = call_user_func(new ErrorController());
     $response->send();
