@@ -17,6 +17,7 @@
                                         class="form-control"
                                         placeholder="Nom de l'épreuve"
                                         name="epreuveNom"
+                                        required
                                 >
                                 <label for="orangeForm-name2"></label>
                             </div>
@@ -27,6 +28,7 @@
                                         id="orangeForm-email2"
                                         class="form-control"
                                         name="epreuveDate"
+                                        required
                                 >
                                 <label for="orangeForm-email2"></label>
                             </div>
@@ -40,4 +42,7 @@
             </div>
         </div>
     </div>
+    {% if(status == true) %}
+     {% include 'template/ErrorModal.html.twig' %}
+    {% endif %}
 {% endblock %}
