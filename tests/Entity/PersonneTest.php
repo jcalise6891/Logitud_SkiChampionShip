@@ -17,7 +17,7 @@ class PersonneTest extends TestCase
     public function testPersonneIsValid()
     {
         $dateTest = new DateTime('yesterday');
-        $profilTest = new Profil('ProfilTest');
+        $profilTest = new Profil(15,'ProfilTest');
         $categorieTest = new Categorie(52,'CategorieTest');
 
         $testPersonne = new Personne(
@@ -41,7 +41,7 @@ class PersonneTest extends TestCase
         $this->expectException(Exception::class);
 
         $dateTest = new DateTime('yesterday');
-        $profilTest = new Profil('ProfilTest');
+        $profilTest = new Profil(15,'ProfilTest');
         $categorieTest = new Categorie(52,'CategorieTest');
 
         $testPersonne = new Personne(
@@ -75,7 +75,7 @@ class PersonneTest extends TestCase
     public function provider()
     {
         $dateTestarray = new DateTimeImmutable();
-        $profilTest = new Profil('ProTest');
+        $profilTest = new Profil(15,'ProTest');
         $categorieTest = new Categorie(52,'CatTest');
 
         return array(

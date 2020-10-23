@@ -59,11 +59,20 @@ class EpreuveController extends AbstractMainController
             if (is_string($request->get('submit'))) {
                 $newEpreuve = new Epreuve(
                     $request->get('epreuveNom'),
-                    $request->get('epreuveDate')
+                    EntityAbstract::strToDateTime($request->get('epreuveDate'))
                 );
                 $connexion = new BDD('logitudski', 'localhost', '3307', 'root', 'root');
                 $db = $connexion->connectToBDD();
-                return $connexion->addToBDD($db, $newEpreuve);
+                if (!$connexion->addToBDD($db, $newEpreuve)) {
+                    echo $this->twig->render(
+                        'epreuve/addEpreuve.html.twig',
+                        [
+                            'entity' => $newEpreuve,
+                            'status' => true,
+                            'errorMessage' => 'Il existe déjà une épreuve avec ce nom'
+                        ]
+                    );
+                }
             } else {
                 throw new Exception("Erreur: Ne peux pas créer l'épreuve");
             }

@@ -24,14 +24,6 @@ class BDDTest extends TestCase
         BDD::fromString(' ', '', 52, '', '');
     }
 
-    public function testObjectIsKnown()
-    {
-        $BDDTest = new BDD('test', 'test', '52', 'root', 'root');
-        $PDOMock = $this->createMock(PDO::class);
-        $catTest = new Categorie(52,'catTest');
-        $this->assertIsString($BDDTest->addToBDD($PDOMock, $catTest));
-    }
-
     public function testObjectIsUnknown()
     {
         $BDDTest = new BDD('test', 'test', '52', 'root', 'root');

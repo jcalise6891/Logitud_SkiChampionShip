@@ -51,7 +51,7 @@ class EpreuveTest extends TestCase
             'michel',
             'jean.michel@test.com',
             new DateTime('yesterday'),
-            new Profil('profTest'),
+            new Profil(15,'profTest'),
             new Categorie(28,'catTest')
         );
 
@@ -73,7 +73,7 @@ class EpreuveTest extends TestCase
             'michel',
             'jean.michel@test.com',
             new DateTime('yesterday'),
-            new Profil('profTest'),
+            new Profil(15,'profTest'),
             new Categorie(28,'catTest')
         );
 
@@ -93,7 +93,7 @@ class EpreuveTest extends TestCase
             'michel',
             'jean.michel@test.com',
             new DateTime('yesterday'),
-            new Profil('profTest'),
+            new Profil(15,'profTest'),
             new Categorie(52,'catTest')
         );
 
