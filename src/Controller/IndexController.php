@@ -27,8 +27,8 @@ class IndexController extends AbstractMainController
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function showIndex($request)
+    public function showIndex($request,$attribute,$container)
     {
-        echo $this->twig->render('index.html.twig');
+        echo $container['twig']->render('index.html.twig');
     }
 }

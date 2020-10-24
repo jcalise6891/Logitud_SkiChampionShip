@@ -12,6 +12,8 @@ use Symfony\Component\Routing\Loader\YamlFileLoader;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 use Pimple\Container;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 
 $fileLocator = new FileLocator([__DIR__ . '/src/Config/']);
@@ -24,6 +26,29 @@ $context->fromRequest($request);
 $matcher = new UrlMatcher($routes, $context);
 
 $container = new Container();
+
+$container['twig'] = function() {
+    $templates = './src/view/';
+    $loader = new FilesystemLoader($templates);
+    return new Environment(
+        $loader,
+        ['cache' => false]
+    );
+};
+
+$container['PDO'] = function (){
+    $dbHost = "localhost";
+    $dbPort = 3307;
+    $db = "logitudski";
+    return new PDO(
+        'mysql:host=' . $dbHost . ';port=' . $dbPort . ';dbname=' . $db . '',
+        'root',
+        'root'
+    );
+};
+
+
+
 
 try {
     $attributes = $matcher->match($request->getPathInfo());
