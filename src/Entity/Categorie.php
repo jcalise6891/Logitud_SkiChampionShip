@@ -30,7 +30,7 @@ class Categorie extends EntityAbstract
      */
     public static function fromString(int $id, string $nom): self
     {
-        return new self($id,$nom);
+        return new self($id, $nom);
     }
 
     public function getCategorieNom()

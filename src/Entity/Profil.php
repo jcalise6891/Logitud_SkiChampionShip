@@ -18,7 +18,7 @@ class Profil extends EntityAbstract
      * @param $nom
      * @throws Exception
      */
-    public function __construct($id,$nom)
+    public function __construct($id, $nom)
     {
         $this->ID = $id;
         EntityAbstract::isNotEmpty($nom);
@@ -30,9 +30,9 @@ class Profil extends EntityAbstract
      * @return $this
      * @throws Exception
      */
-    public static function fromString(int $ID,string $nom): self
+    public static function fromString(int $ID, string $nom): self
     {
-        return new self($ID,$nom);
+        return new self($ID, $nom);
     }
 
     /**

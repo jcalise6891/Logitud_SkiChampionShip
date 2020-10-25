@@ -85,7 +85,7 @@ class BDD extends EntityAbstract
      * @return bool
      * @throws Exception
      */
-    public function addToBDD(PDO $pdo, object $object):bool
+    public function addToBDD(PDO $pdo, object $object): bool
     {
         $stringClass = get_class($object);
         $exploded = explode('\\', $stringClass);
@@ -104,11 +104,11 @@ class BDD extends EntityAbstract
                 $sql = "INSERT INTO personne (nom, prenom, mail, dateDeNaissance, categorie, profil)
                         VALUES (:nom, :prenom, :mail, :dateDeNaissance, :categorie, :profil)";
                 $query = $pdo->prepare($sql);
-                $query->bindValue(':nom', $object->getNom(),PDO::PARAM_STR);
-                $query->bindValue(':prenom', $object->getPrenom(),PDO::PARAM_STR);
-                $query->bindValue(':mail', $object->getMail(),PDO::PARAM_STR);
+                $query->bindValue(':nom', $object->getNom(), PDO::PARAM_STR);
+                $query->bindValue(':prenom', $object->getPrenom(), PDO::PARAM_STR);
+                $query->bindValue(':mail', $object->getMail(), PDO::PARAM_STR);
                 $query->bindValue(':dateDeNaissance', $object->getDateDeNaissance->format('Y-m-d'));
-                $query->bindValue(':categorie',$object->getCategorie()->getID());
+                $query->bindValue(':categorie', $object->getCategorie()->getID());
                 $query->bindValue(':profil', $object->getProfil()->getID());
                 return $query->execute();
             case 'Epreuve':

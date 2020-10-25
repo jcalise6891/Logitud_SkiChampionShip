@@ -4,6 +4,7 @@ require_once(dirname(__FILE__) . "/vendor/autoload.php");
 
 
 use App\Controller\ErrorController;
+use Pimple\Container;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Exception\MethodNotAllowedException;
@@ -11,7 +12,6 @@ use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Loader\YamlFileLoader;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
-use Pimple\Container;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
@@ -24,10 +24,10 @@ $request = Request::createFromGlobals();
 $context = new RequestContext();
 $context->fromRequest($request);
 $matcher = new UrlMatcher($routes, $context);
-
 $container = new Container();
 
-$container['twig'] = function() {
+
+$container['twig'] = function () {
     $templates = './src/view/';
     $loader = new FilesystemLoader($templates);
     return new Environment(
@@ -36,7 +36,7 @@ $container['twig'] = function() {
     );
 };
 
-$container['PDO'] = function (){
+$container['PDO'] = function () {
     $dbHost = "localhost";
     $dbPort = 3307;
     $db = "logitudski";
@@ -47,6 +47,9 @@ $container['PDO'] = function (){
     );
 };
 
+$container['theme'] = $request->cookies->get('theme');
+
+
 
 
 
@@ -55,7 +58,7 @@ try {
     $object = explode('::', $attributes['_controller']);
     $class = $object[0];
 
-    call_user_func_array([new $class(), $object[1]], [$request, $attributes,$container]);
+    call_user_func_array([new $class(), $object[1]], [$request, $attributes, $container]);
 } catch (ResourceNotFoundException $exception) {
     $response = call_user_func(new ErrorController());
     $response->send();

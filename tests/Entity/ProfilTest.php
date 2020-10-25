@@ -12,13 +12,13 @@ class ProfilTest extends TestCase
     {
         $this->assertInstanceOf(
             Profil::class,
-            Profil::fromString(15,'ProfilTest')
+            Profil::fromString(15, 'ProfilTest')
         );
     }
 
     public function testProfilIsInvalid()
     {
         $this->expectException(Exception::class);
-        Profil::fromString(15,'');
+        Profil::fromString(15, '');
     }
 }

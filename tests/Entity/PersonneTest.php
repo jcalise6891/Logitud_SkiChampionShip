@@ -17,8 +17,8 @@ class PersonneTest extends TestCase
     public function testPersonneIsValid()
     {
         $dateTest = new DateTime('yesterday');
-        $profilTest = new Profil(15,'ProfilTest');
-        $categorieTest = new Categorie(52,'CategorieTest');
+        $profilTest = new Profil(15, 'ProfilTest');
+        $categorieTest = new Categorie(52, 'CategorieTest');
 
         $testPersonne = new Personne(
             15,
@@ -30,19 +30,20 @@ class PersonneTest extends TestCase
             $categorieTest
         );
 
-        $this->assertInstanceOf(Personne::class,
-            $testPersonne);
+        $this->assertInstanceOf(
+            Personne::class,
+            $testPersonne
+        );
     }
 
 
     public function testPersonneIsInvalid()
     {
-
         $this->expectException(Exception::class);
 
         $dateTest = new DateTime('yesterday');
-        $profilTest = new Profil(15,'ProfilTest');
-        $categorieTest = new Categorie(52,'CategorieTest');
+        $profilTest = new Profil(15, 'ProfilTest');
+        $categorieTest = new Categorie(52, 'CategorieTest');
 
         $testPersonne = new Personne(
             15,
@@ -69,14 +70,14 @@ class PersonneTest extends TestCase
     {
         $this->expectException(Exception::class);
         $personne = new Personne($id, $nom, $prenom, $mail, $birthdate, $profil, $categorie);
-        fwrite(STDERR, print_r($personne, TRUE));
+        fwrite(STDERR, print_r($personne, true));
     }
 
     public function provider()
     {
         $dateTestarray = new DateTimeImmutable();
-        $profilTest = new Profil(15,'ProTest');
-        $categorieTest = new Categorie(52,'CatTest');
+        $profilTest = new Profil(15, 'ProTest');
+        $categorieTest = new Categorie(52, 'CatTest');
 
         return array(
             array(

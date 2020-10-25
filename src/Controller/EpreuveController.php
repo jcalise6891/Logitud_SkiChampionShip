@@ -51,7 +51,7 @@ class EpreuveController extends AbstractMainController
 
     /**
      * @param $request
-     * @return bool
+     * @return void
      */
     public function addEpreuve($request)
     {
@@ -99,7 +99,7 @@ class EpreuveController extends AbstractMainController
             header('Location: ../../../../Logitud_SkiChampionShip/epreuveList');
             return true;
         } else {
-            throw new Exception('Un probleme est survenue pendant la suppression');
+            throw new Exception('Un problème est survenue pendant la suppression');
         }
     }
 }

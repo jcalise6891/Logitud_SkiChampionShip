@@ -2,7 +2,7 @@
 {% block body %}
     <div class="container m-auto">
         <div class="row d-flex justify-content-center m-auto">
-        <!-- Grid column -->
+            <!-- Grid column -->
             <div class="col-8">
                 <div class="card ripe-malinka-gradient form-white px-1">
                     <div class="card-body">
@@ -33,7 +33,9 @@
                                 <label for="orangeForm-email2"></label>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-outline-white waves-effect waves-light" name="submit">Créer</button>
+                                <button type="submit" class="btn btn-outline-white waves-effect waves-light"
+                                        name="submit">Créer
+                                </button>
                             </div>
                         </form>
                         <!-- Form register -->
@@ -43,6 +45,6 @@
         </div>
     </div>
     {% if(status == true) %}
-     {% include 'template/ErrorModal.html.twig' %}
+        {% include 'template/ErrorModal.html.twig' %}
     {% endif %}
 {% endblock %}

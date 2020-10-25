@@ -23,12 +23,12 @@ class IndexController extends AbstractMainController
     }
 
     /**
-     * @throws LoaderError
-     * @throws RuntimeError
-     * @throws SyntaxError
+     * @param $request
+     * @param $attribute
+     * @param $container
      */
-    public function showIndex($request,$attribute,$container)
+    public function showIndex($request, $attribute, $container)
     {
-        echo $container['twig']->render('index.html.twig');
+        echo $container['twig']->render('index.html.twig', ['theme' => $container['theme']]);
     }
 }

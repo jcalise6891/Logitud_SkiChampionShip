@@ -2,7 +2,6 @@
 
 namespace Model;
 
-use App\Entity\Categorie;
 use App\Model\BDD;
 use Exception;
 use PDO;

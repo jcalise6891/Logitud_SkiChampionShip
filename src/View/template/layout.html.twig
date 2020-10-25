@@ -1,97 +1,115 @@
 <!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Logitud - Ski ChampionShip</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Logitud - Ski ChampionShip</title>
 
-    <link rel="icon" href="/Logitud_SkiChampionShip/assets/img/ico.png"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css"
-          integrity="sha512-PMjWzHVtwxdq7m7GIxBot5vdxUY+5aKP9wpKtvnNBZrVv1srI8tU6xvFMzG8crLNcMj/8Xl/WWmo/oAP/40p1g=="
-          crossorigin="anonymous"/>
-    <link rel="stylesheet" href="/Logitud_SkiChampionShip/assets/css/style.css"/>
+        <link rel="icon" href="/Logitud_SkiChampionShip/assets/img/ico.png"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css"
+              integrity="sha512-PMjWzHVtwxdq7m7GIxBot5vdxUY+5aKP9wpKtvnNBZrVv1srI8tU6xvFMzG8crLNcMj/8Xl/WWmo/oAP/40p1g=="
+              crossorigin="anonymous"/>
+        <link rel="stylesheet" href="/Logitud_SkiChampionShip/assets/css/style.css"/>
 
-    <script
-            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous">
-    </script>
-    <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous">
-    </script>
-    <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js">
-    </script>
-    <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js"
-            integrity="sha512-2JBCbWoMJPH+Uj7Wq5OLub8E5edWHlTM4ar/YJkZh3plwB2INhhOC3eDoqHm1Za/ZOSksrLlURLoyXVdfQXqwg=="
-            crossorigin="anonymous">
-    </script>
+        <script
+                src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous">
+        </script>
+        <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                crossorigin="anonymous">
+        </script>
+        <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js">
+        </script>
+        <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js"
+                integrity="sha512-2JBCbWoMJPH+Uj7Wq5OLub8E5edWHlTM4ar/YJkZh3plwB2INhhOC3eDoqHm1Za/ZOSksrLlURLoyXVdfQXqwg=="
+                crossorigin="anonymous">
+        </script>
+        <script type="module" src="/Logitud_SkiChampionShip/assets/js/script.js"></script>
+    </head>
 
-    <script type="module" src="/Logitud_SkiChampionShip/assets/js/script.js"></script>
+    <body class="{{ theme }}-theme">
+        <div class="main h-100 d-flex flex-column">
+            <nav class="navbar navbar-expand-lg {% if(theme == dark) %}
+                navbar-dark bg-dark
+                {% else %}
+                navbar-light bg-light
+                {% endif %}
+                ">
+                <a class="navbar-brand" href="#">
+                    <img src="/Logitud_SkiChampionShip/assets/img/logitudLogo.png" alt="LogitudLogo"/>
+                </a>
+                <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class=" nav navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Logitud_SkiChampionShip/">Accueil<span
+                                        class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    id="navbarDropdownMenuLink"
+                                    role="button"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false">
+                                Epreuve
+                            </a>
+                            <div id="logitud-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="addEpreuve">Nouvelle Epreuve</a>
+                                <a class="dropdown-item" href="epreuveList">Afficher Epreuve</a>
+                                <a class="dropdown-item" href="#">Résultat</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"></a>
+                        </li>
+                        <li class="nav-item dark-mode">
+                            <a class="nav-link" href="#">Theme Sombre<span
+                                        class="sr-only"></span></a>
+                        </li>
+                    </ul>
+                </div>
+                <label class="switch" name="dark-theme-toggle">
+                    <input type="checkbox"
+                           {% if(theme == dark) %}
+                            checked
+                           {% endif %}
+                    >
+                    <span class="slider round"></span>
+                </label>
+            </nav>
+            {% block body %}
+            {% endblock %}
+            <footer>
 
-<body>
-<div class="main h-100 d-flex flex-column">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <img src="/Logitud_SkiChampionShip/assets/img/logitudLogo.png" alt="LogitudLogo"/>
-        </a>
-        <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class=" nav navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/Logitud_SkiChampionShip/">Accueil<span
-                                class="sr-only"></span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false">
-                        Epreuve
-                    </a>
-                    <div id="logitud-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="addEpreuve">Nouvelle Epreuve</a>
-                        <a class="dropdown-item" href="epreuveList">Afficher Epreuve</a>
-                        <a class="dropdown-item" href="#">Résultat</a>
-                    </div>
-                </li>
-            </ul>
+            </footer>
         </div>
-    </nav>
-    {% block body %}
-    {% endblock %}
-
-
-    <footer>
-
-    </footer>
-</div>
-</body>
+    </body>
 </html>

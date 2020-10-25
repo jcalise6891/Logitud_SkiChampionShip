@@ -40,8 +40,7 @@ class Personne extends EntityAbstract
         Profil $profil,
         Categorie $categorie,
         string $image = "default"
-    )
-    {
+    ) {
         EntityAbstract::isNotEmpty($ID);
         $this->ID = $ID;
 
