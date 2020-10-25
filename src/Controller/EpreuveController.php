@@ -28,7 +28,7 @@ class EpreuveController extends AbstractMainController
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function retrieveEpreuveList()
+    public function retrieveEpreuveList($request, $attributes, $container)
     {
         $connexion = new BDD(
             'logitudski',
@@ -41,19 +41,19 @@ class EpreuveController extends AbstractMainController
         $result = $connexion->getEntityListFromBDD($db, 'epreuve');
 
 
-        echo $this->twig->render('epreuve/showEpreuve.html.twig', ['epreuveList' => $result]);
+        echo $this->twig->render('epreuve/showEpreuve.html.twig', ['epreuveList' => $result , 'theme' => $container['theme'] ]);
     }
 
-    public function showAddEpreuve()
+    public function showAddEpreuve($request, $attributes, $container)
     {
-        echo $this->twig->render('epreuve/addEpreuve.html.twig');
+        echo $this->twig->render('epreuve/addEpreuve.html.twig', ['theme' => $container['theme']]);
     }
 
     /**
      * @param $request
      * @return void
      */
-    public function addEpreuve($request)
+    public function addEpreuve($request, $attributes, $container)
     {
         try {
             if (is_string($request->get('submit'))) {
