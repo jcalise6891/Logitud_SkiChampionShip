@@ -9,60 +9,15 @@ use PDOException;
 
 class BDD extends EntityAbstract
 {
-    private string $db;
-    private string $dbHost;
-    private int $dbPort;
-    private string $dbUser;
-    private string $dbPass;
+    private PDO $PDO;
 
     /**
      * BDD constructor.
-     * @param String $db
-     * @param String $dbHost
-     * @param int $dbPort
-     * @param String $dbUser
-     * @param String $dbPass
-     * @throws Exception
+     * @param PDO $pdo
      */
-    public function __construct(string $db, string $dbHost, int $dbPort, string $dbUser, string $dbPass)
+    public function __construct(PDO $pdo)
     {
-        EntityAbstract::isNotEmpty($db);
-        $this->db = $db;
-        $this->dbHost = $dbHost;
-        $this->dbPort = $dbPort;
-        $this->dbUser = $dbUser;
-        $this->dbPass = $dbPass;
-    }
-
-    /**
-     * @param string $db
-     * @param string $dbHost
-     * @param int $dbPort
-     * @param string $dbUser
-     * @param string $dbPass
-     * @return BDD
-     * @throws Exception
-     */
-    public static function fromString(string $db, string $dbHost, int $dbPort, string $dbUser, string $dbPass)
-    {
-        return new self($db, $dbHost, $dbPort, $dbUser, $dbPass);
-    }
-
-    /**
-     * @return false|PDO
-     */
-    public function connectToBDD()
-    {
-        try {
-            return new PDO(
-                'mysql:host=' . $this->dbHost . ';port=' . $this->dbPort . ';dbname=' . $this->db . '',
-                $this->dbUser,
-                $this->dbPass
-            );
-        } catch (PDOException $e) {
-            echo 'Connection failed: ' . $e->getMessage();
-            return false;
-        }
+       $this->PDO = $pdo;
     }
 
     /**
@@ -70,10 +25,20 @@ class BDD extends EntityAbstract
      * @param string $entityName
      * @return array
      */
-    public function getEntityListFromBDD(PDO $pdo, string $entityName): array
+    public function getEntityListFromBDD(string $entityName): array
     {
         $sql = 'SELECT * FROM ' . $entityName;
-        $query = $pdo->prepare($sql);
+        $query = $this->PDO->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getListFromSpecificOption(string $entityName, string $entityCondition, int $entityConditionID){
+        $sql =  'SELECT '.$entityName.'.* FROM '. $entityName .', '.$entityName.'_'.$entityCondition.
+                ' WHERE '.$entityName.'_'.$entityCondition.'.'.$entityName.'_ID = '. $entityName.
+                '.ID AND '.$entityName.'_'.$entityCondition.'.'.$entityCondition.'_ID = '.$entityConditionID;
+        $query = $this->PDO->prepare($sql);
         $query->execute();
 
         return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -92,18 +57,18 @@ class BDD extends EntityAbstract
         switch (end($exploded)) {
             case 'Profil':
                 $sql = "INSERT INTO profil (nom) VALUES (:nom)";
-                $query = $pdo->prepare($sql);
+                $query = $this->PDO->prepare($sql);
                 $query->bindValue(':nom', $object->getProfilNom());
                 return $query->execute();
             case 'Categorie':
                 $sql = "INSERT INTO categorie (nom) VALUES (:nom)";
-                $query = $pdo->prepare($sql);
+                $query = $this->PDO->prepare($sql);
                 $query->bindValue(':nom', $object->getCategorieNom());
                 return $query->execute();
             case 'Personne':
                 $sql = "INSERT INTO personne (nom, prenom, mail, dateDeNaissance, categorie, profil)
                         VALUES (:nom, :prenom, :mail, :dateDeNaissance, :categorie, :profil)";
-                $query = $pdo->prepare($sql);
+                $query = $this->PDO->prepare($sql);
                 $query->bindValue(':nom', $object->getNom(), PDO::PARAM_STR);
                 $query->bindValue(':prenom', $object->getPrenom(), PDO::PARAM_STR);
                 $query->bindValue(':mail', $object->getMail(), PDO::PARAM_STR);
@@ -113,7 +78,7 @@ class BDD extends EntityAbstract
                 return $query->execute();
             case 'Epreuve':
                 $sql = "INSERT INTO epreuve (nom, date) VALUES (:nom, :date)";
-                $query = $pdo->prepare($sql);
+                $query = $this->PDO->prepare($sql);
                 $query->bindValue(':nom', $object->getNom(), PDO::PARAM_STR);
                 $query->bindValue(':date', $object->getDate()->format('Y-m-d:H:i'));
                 return $query->execute();
@@ -122,10 +87,10 @@ class BDD extends EntityAbstract
         }
     }
 
-    public function deleteFromBDD(PDO $pdo, string $id, string $entity): bool
+    public function deleteFromBDD(string $id, string $entity): bool
     {
         $sql = 'DELETE FROM ' . $entity . ' WHERE ID = :id';
-        $query = $pdo->prepare($sql);
+        $query = $this->PDO->prepare($sql);
         $query->bindValue(':id', $id, PDO::PARAM_INT);
         return $query->execute();
     }

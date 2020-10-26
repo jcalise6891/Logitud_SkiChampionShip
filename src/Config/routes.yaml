@@ -17,3 +17,7 @@ deleteEpreuve:
 addEpreuve:
   path: /addEpreuve/add
   defaults: { _controller: App\Controller\EpreuveController::addEpreuve }
+
+testPersonne:
+  path: /personneList
+  defaults : { _controller: App\Controller\PersonneController::showPersonneList }

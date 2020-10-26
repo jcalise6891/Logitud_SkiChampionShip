@@ -11,22 +11,18 @@ class BDDTest extends TestCase
 {
     public function testConnectionIsValid()
     {
+        $PDOMock = $this->createMock(PDO::class);
         $this->assertInstanceOf(
             BDD::class,
-            BDD::fromString('test', 'localhost', 3307, 'root', 'root')
+            new BDD($PDOMock)
         );
-    }
-
-    public function testConnectionIsInvalid()
-    {
-        $this->expectException(Exception::class);
-        BDD::fromString(' ', '', 52, '', '');
     }
 
     public function testObjectIsUnknown()
     {
-        $BDDTest = new BDD('test', 'test', '52', 'root', 'root');
+
         $PDOMock = $this->createMock(PDO::class);
+        $BDDTest = new BDD($PDOMock);
         $objectMock = $this->createMock(\DateTime::class);
 
         $this->expectException(Exception::class);
