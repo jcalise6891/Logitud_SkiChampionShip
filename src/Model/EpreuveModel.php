@@ -19,7 +19,8 @@ class EpreuveModel
         $this->pdo = $pdo;
     }
 
-    public function retrieveEpreuveList(){
+    public function retrieveEpreuveList()
+    {
         $sql = "select e.*, count(pe.personne_ID)
                 as NbParticipant
                 from epreuve e
@@ -29,6 +30,15 @@ class EpreuveModel
         $query = $this->pdo->prepare($sql);
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function retrieveSingleEpreuve($id)
+    {
+        $sql = "select * from epreuve where epreuve.ID = :id";
+        $query = $this->pdo->prepare($sql);
+        $query->bindValue(':id', $id);
+        $query->execute();
+        return $query->fetch(PDO::FETCH_ASSOC);
     }
 
 

@@ -20,7 +20,6 @@ class BDDTest extends TestCase
 
     public function testObjectIsUnknown()
     {
-
         $PDOMock = $this->createMock(PDO::class);
         $BDDTest = new BDD($PDOMock);
         $objectMock = $this->createMock(\DateTime::class);

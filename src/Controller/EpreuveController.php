@@ -8,6 +8,7 @@ use App\Model\EpreuveModel;
 use App\Utility\EntityAbstract;
 use Exception;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -32,7 +33,6 @@ class EpreuveController extends AbstractMainController
      */
     public function retrieveEpreuveList($request, $attributes, $container)
     {
-
         $connexion = new EpreuveModel($container['PDO']);
         $result = $connexion->retrieveEpreuveList();
         echo $this->twig->render(
@@ -41,6 +41,42 @@ class EpreuveController extends AbstractMainController
         );
     }
 
+    public function showSingleEpreuve($request, $attributes, $container)
+    {
+        $result = (new EpreuveModel($container['PDO']))->retrieveSingleEpreuve($attributes['id']);
+        $partList = (new BDD($container['PDO']))
+            ->getListFromSpecificOption(
+                'personne',
+                'epreuve',
+                intval($attributes['id'])
+            );
+        $dateTime = date_create_from_format('Y-m-d H:i:s', $result['date']);
+        $stringTime = $dateTime->format('Y-m-dTH:i');
+        $letterArray = array('U', 'C');
+        $epreuveDate = str_replace($letterArray, '', $stringTime);
+        return new Response(
+            $container['twig']
+                ->render(
+                    'epreuve/showSingleEpreuve.html.twig',
+                    [
+                        'epreuve' => $result,
+                        'partList' => $partList,
+                        'epreuveDate' => $epreuveDate,
+                        'theme' => $container['theme']
+                    ]
+                ), 200
+        );
+    }
+
+
+    /**
+     * @param $request
+     * @param $attributes
+     * @param $container
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
     public function showAddEpreuve($request, $attributes, $container)
     {
         echo $this->twig->render('epreuve/addEpreuve.html.twig', ['theme' => $container['theme']]);
@@ -48,6 +84,8 @@ class EpreuveController extends AbstractMainController
 
     /**
      * @param $request
+     * @param $attributes
+     * @param $container
      * @return void
      */
     public function addEpreuve($request, $attributes, $container)
@@ -68,14 +106,14 @@ class EpreuveController extends AbstractMainController
                         ]
                     );
                 }
-                $connexion = new BDD('logitudski', 'localhost', '3307', 'root', 'root');
-                $db = $connexion->connectToBDD();
-                if (!$connexion->addToBDD($db, $newEpreuve)) {
+                $connexion = new BDD($container['PDO']);
+                if (!$connexion->addToBDD($newEpreuve)) {
                     echo $this->twig->render(
                         'epreuve/addEpreuve.html.twig',
                         [
                             'entity' => $newEpreuve,
                             'status' => true,
+                            'theme' => $container['theme'],
                             'errorMessage' => 'Il existe déjà une épreuve avec ce nom'
                         ]
                     );
@@ -97,15 +135,14 @@ class EpreuveController extends AbstractMainController
      * @return bool
      * @throws Exception
      */
-    public function deleteEpreuve($request, $attributes)
+    public function deleteEpreuve($request, $attributes, $container)
     {
         $epreuveToDelete = $attributes['id'];
         $controllerArray = EntityAbstract::splitAtUpperCase($attributes['_controller']);
         $entity = strtolower(end($controllerArray));
 
-        $connexion = new BDD('logitudski', 'localhost', '3307', 'root', 'root');
-        $pdo = $connexion->connectToBDD();
-        if ($connexion->deleteFromBDD($pdo, $epreuveToDelete, $entity)) {
+        $connexion = new BDD($container['PDO']);
+        if ($connexion->deleteFromBDD($epreuveToDelete, $entity)) {
             header('Location: ../../../../Logitud_SkiChampionShip/epreuveList');
             return true;
         } else {

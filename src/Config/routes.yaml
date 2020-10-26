@@ -2,7 +2,7 @@ index:
   path: /
   defaults: { _controller: App\Controller\IndexController::showIndex }
 
-showEpreuve:
+showEpreuveList:
   path: /epreuveList
   defaults: { _controller: App\Controller\EpreuveController::retrieveEpreuveList }
 
@@ -18,6 +18,6 @@ addEpreuve:
   path: /addEpreuve/add
   defaults: { _controller: App\Controller\EpreuveController::addEpreuve }
 
-testPersonne:
-  path: /personneList
-  defaults : { _controller: App\Controller\PersonneController::showPersonneList }
+showEpreuve:
+  path: /showEpreuve/{id}
+  defaults: { _controller: App\Controller\EpreuveController::showSingleEpreuve }

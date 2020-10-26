@@ -5,7 +5,6 @@ namespace App\Model;
 use App\Utility\EntityAbstract;
 use Exception;
 use PDO;
-use PDOException;
 
 class BDD extends EntityAbstract
 {
@@ -17,7 +16,7 @@ class BDD extends EntityAbstract
      */
     public function __construct(PDO $pdo)
     {
-       $this->PDO = $pdo;
+        $this->PDO = $pdo;
     }
 
     /**
@@ -34,10 +33,11 @@ class BDD extends EntityAbstract
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getListFromSpecificOption(string $entityName, string $entityCondition, int $entityConditionID){
-        $sql =  'SELECT '.$entityName.'.* FROM '. $entityName .', '.$entityName.'_'.$entityCondition.
-                ' WHERE '.$entityName.'_'.$entityCondition.'.'.$entityName.'_ID = '. $entityName.
-                '.ID AND '.$entityName.'_'.$entityCondition.'.'.$entityCondition.'_ID = '.$entityConditionID;
+    public function getListFromSpecificOption(string $entityName, string $entityCondition, int $entityConditionID)
+    {
+        $sql = 'SELECT ' . $entityName . '.* FROM ' . $entityName . ', ' . $entityName . '_' . $entityCondition .
+            ' WHERE ' . $entityName . '_' . $entityCondition . '.' . $entityName . '_ID = ' . $entityName .
+            '.ID AND ' . $entityName . '_' . $entityCondition . '.' . $entityCondition . '_ID = ' . $entityConditionID;
         $query = $this->PDO->prepare($sql);
         $query->execute();
 
@@ -50,7 +50,7 @@ class BDD extends EntityAbstract
      * @return bool
      * @throws Exception
      */
-    public function addToBDD(PDO $pdo, object $object): bool
+    public function addToBDD(object $object): bool
     {
         $stringClass = get_class($object);
         $exploded = explode('\\', $stringClass);

@@ -26,7 +26,7 @@
                                     <button
                                             type="button"
                                             class="btn btn-primary"
-                                            onclick="location.href=''">
+                                            onclick="location.href='showEpreuve/{{ epreuve.ID }}'">
                                         <i class="far fa-eye"></i>
                                     </button>
                                     <button
@@ -37,7 +37,7 @@
                                     <button
                                             type="button"
                                             data-toggle="modal"
-                                            data-target="#exampleModal"
+                                            data-target="#exampleModal{{ epreuve.ID }}"
                                             class="btn btn-danger">
                                         <i class="far fa-trash-alt"></i>
                                     </button>

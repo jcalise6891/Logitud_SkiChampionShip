@@ -6,14 +6,14 @@
 @import "modal";
 @import "form";
 
-body{
+body {
   min-height: 100%;
   height: 100vh;
   color: #222;
   background: #fff;
 }
 
-a{
+a {
   color: #0033cc;
 }
 
@@ -21,22 +21,23 @@ body.dark-theme {
   color: #eee !important;
   background: #121212;
 }
+
 body.dark-theme a {
   color: #809fff;
 }
 
-body.dark-theme th{
+body.dark-theme th {
   color: #eee;
 }
 
-body th{
+body th {
   color: #000;
 }
 
-body.dark-theme td{
+body.dark-theme td {
   color: #eee;
 }
 
-body td{
+body td {
   color: #212529;
 }

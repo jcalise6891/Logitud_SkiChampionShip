@@ -1,0 +1,42 @@
+{% extends 'template/layout.html.twig' %}
+{% block body %}
+    <div class="container mt-5">
+        <div class="row d-flex">
+            <div class="col-4">
+                <div class="card ripe-malinka-gradient form-white px-1">
+                    <div class="card-body">
+                        <form method="post" role="form" action="" class="form-group">
+                            <div class="md-form">
+                                <i>Nom</i>
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        name="epreuveNom"
+                                        value="{{ epreuve.nom }}"
+                                >
+                            </div>
+                            <div class="md-form">
+                                <i>Date</i>
+                                <input
+                                        type="datetime-local"
+                                        class="form-control"
+                                        name="epreuveDate"
+                                        value="{{ epreuveDate }}"
+                                >
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-outline-white waves-effect waves-light"
+                                        name="submit">Mettre à jour
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

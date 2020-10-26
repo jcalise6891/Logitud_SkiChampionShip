@@ -7,6 +7,7 @@ use App\Controller\ErrorController;
 use Pimple\Container;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Exception\MethodNotAllowedException;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Loader\YamlFileLoader;
@@ -57,12 +58,13 @@ try {
     $object = explode('::', $attributes['_controller']);
     $class = $object[0];
 
-    call_user_func_array([new $class(), $object[1]], [$request, $attributes, $container]);
+   $response = call_user_func_array([new $class(), $object[1]], [$request, $attributes, $container]);
 } catch (ResourceNotFoundException $exception) {
     $response = call_user_func(new ErrorController());
-    $response->send();
 } catch (MethodNotAllowedException $exception) {
-    echo $exception->getMessage();
+    $response = new Response($exception->getMessage(), Response::HTTP_METHOD_NOT_ALLOWED);
+} finally {
+    $response->send();
 }
 
 
