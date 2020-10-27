@@ -8,21 +8,21 @@
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Epreuve</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Nombre de Participants</th>
-                            <th scope="col">Actions</th>
+                            <th class="text-center" scope="col">ID</th>
+                            <th class="text-center" scope="col">Epreuve</th>
+                            <th class="text-center" scope="col">Date</th>
+                            <th class="text-center" scope="col">Nombre de Participants</th>
+                            <th class="text-center" scope="col">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for epreuve in epreuveList %}
                             <tr>
-                                <th scope="row">{{ epreuve.ID }}</th>
+                                <th class="text-center" scope="row">{{ epreuve.ID }}</th>
                                 <td class="text-center">{{ epreuve.nom }}</td>
                                 <td class="text-center">{{ epreuve.date }}</td>
                                 <td class="text-center">{{ epreuve.NbParticipant }}</td>
-                                <td>
+                                <td class="text-center">
                                     <button
                                             type="button"
                                             class="btn btn-primary"

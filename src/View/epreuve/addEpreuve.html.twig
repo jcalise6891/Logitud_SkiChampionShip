@@ -45,6 +45,6 @@
         </div>
     </div>
     {% if(status == true) %}
-        {% include 'template/ErrorModal.html.twig' %}
+        {% include 'template/ErrorModal.html.twig' with urlToRedirect %}
     {% endif %}
 {% endblock %}

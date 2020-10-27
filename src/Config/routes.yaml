@@ -21,3 +21,7 @@ addEpreuve:
 showEpreuve:
   path: /showEpreuve/{id}
   defaults: { _controller: App\Controller\EpreuveController::showSingleEpreuve }
+
+updateEpreuve:
+  path: /updateEpreuve/{id}
+  defaults: { _controller: App\Controller\EpreuveController::updateEpreuve }

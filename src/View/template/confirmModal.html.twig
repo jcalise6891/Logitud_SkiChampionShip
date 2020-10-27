@@ -14,11 +14,18 @@
             </div>
             <div class="modal-body text-center">
                 Êtes vous sur de vouloir supprimer : <br><br>
-                <span>{{ entity.ID }} - {{ entity.nom }}</span>
+                <span>{{ entity.ID }} - {% if(entity.prenom) %} {{ entity.prenom }} {% endif %} {{ entity.nom }}</span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                <button type="button" onclick="location.href = 'deleteEpreuve/{{ entity.ID }}'" class="btn btn-danger">
+                <button type="button"
+                        onclick="location.href =
+                                {% if(entity.prenom) %}
+                                'deletePersonne/{{ entity.ID }}'"
+                                {% else %}
+                                'deleteEpreuve/{{ entity.ID }}'"
+                                {% endif %}
+                        class="btn btn-danger">
                     Supprimer
                 </button>
             </div>

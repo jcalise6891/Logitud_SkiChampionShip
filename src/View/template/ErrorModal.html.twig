@@ -2,7 +2,9 @@
 <div class="modal fade" id="ErrorModal" tabindex="-1" role="dialog" aria-labelledby="ErrorModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
+        <div class="modal-content" {% if(theme == "dark") %}
+            style="background-color:#232425"
+                {% endif %}>
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Erreur</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -14,7 +16,14 @@
                 <span>{{ entity.ID }} - {{ entity.nom }}</span>
             </div>
             <div class="modal-footer">
-                <button type="button" onclick="location.href = '../addEpreuve'" class="btn btn-danger">
+                <button type="button"
+                        onclick="location.href =
+                        {% if(urlToRedirect) %}
+                               '{{ urlToRedirect }}'"
+                        {% else %}
+                                '../addEpreuve'"
+                        {% endif %}
+                        class="btn btn-danger">
                     OK
                 </button>
             </div>

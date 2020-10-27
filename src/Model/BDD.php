@@ -94,9 +94,4 @@ class BDD extends EntityAbstract
         $query->bindValue(':id', $id, PDO::PARAM_INT);
         return $query->execute();
     }
-
-    public function updateToBDD(): bool
-    {
-        return true;
-    }
 }

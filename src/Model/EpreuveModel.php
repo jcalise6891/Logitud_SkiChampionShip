@@ -4,9 +4,13 @@
 namespace App\Model;
 
 
+use App\Entity\Epreuve;
+use App\Utility\EntityAbstract;
+use DateTime;
+use Exception;
 use PDO;
 
-class EpreuveModel
+class EpreuveModel extends EntityAbstract
 {
     private PDO $pdo;
 
@@ -19,6 +23,9 @@ class EpreuveModel
         $this->pdo = $pdo;
     }
 
+    /**
+     * @return array
+     */
     public function retrieveEpreuveList()
     {
         $sql = "select e.*, count(pe.personne_ID)
@@ -32,6 +39,37 @@ class EpreuveModel
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * @param Epreuve $epreuve
+     * @return bool | void
+     * @throws Exception
+     */
+    public function insertIntoBDDNewEpreuve(Epreuve $epreuve)
+    {
+        if ($oEpreuve = $this->retrieveSingleEpreuve($epreuve->getID())) {
+            $oldEpreuve = $this->arrayToEpreuve($oEpreuve);
+            if (
+                ($oldEpreuve->getDate()->diff($epreuve->getDate())) != 0
+                ||
+                $oldEpreuve->getNom() != $epreuve->getNom()
+            ) {
+                $sql = "update epreuve set nom = :nomEpreuve , date = :dateEpreuve where ID = :ID";
+                $query = $this->pdo->prepare($sql);
+                $query->bindValue(':nomEpreuve', $epreuve->getNom(), PDO::PARAM_STR);
+                $query->bindValue(
+                    ':dateEpreuve',
+                    $epreuve->getDate()->format('Y-m-d:H:i'), PDO::PARAM_STR
+                );
+                $query->bindValue(':ID', $epreuve->getID(), PDO::PARAM_INT);
+                return $query->execute();
+            }
+        }
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function retrieveSingleEpreuve($id)
     {
         $sql = "select * from epreuve where epreuve.ID = :id";
@@ -39,6 +77,20 @@ class EpreuveModel
         $query->bindValue(':id', $id);
         $query->execute();
         return $query->fetch(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * @param array $aEpreuve
+     * @return Epreuve
+     * @throws Exception
+     */
+    public function arrayToEpreuve(array $aEpreuve)
+    {
+        $date = DateTime::createFromFormat('Y-m-d H:i:s', $aEpreuve['date']);
+        return new Epreuve(
+            $aEpreuve['nom'],
+            $date
+        );
     }
 
 

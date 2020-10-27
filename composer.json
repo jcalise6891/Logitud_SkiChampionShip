@@ -17,7 +17,8 @@
     "doctrine/annotations": "^1.10",
     "symfony/config": "^5.1",
     "symfony/routing": "^3.4",
-    "pimple/pimple": "~3.0"
+    "pimple/pimple": "~3.0",
+    "ramsey/uuid": "^4.1"
   },
   "autoload": {
     "psr-4": {

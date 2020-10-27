@@ -8,6 +8,7 @@ use Exception;
 
 class Epreuve extends EntityAbstract
 {
+    private int $ID;
     private string $nom;
     private DateTime $date;
     private array $participants = [];
@@ -59,6 +60,24 @@ class Epreuve extends EntityAbstract
     {
         return $this->participants;
     }
+
+    /**
+     * @return int
+     */
+    public function getID(): int
+    {
+        return $this->ID;
+    }
+
+    /**
+     * @param int $ID
+     */
+    public function setID(int $ID): void
+    {
+        $this->ID = $ID;
+    }
+
+
 
     /**
      * @param Personne $personne
