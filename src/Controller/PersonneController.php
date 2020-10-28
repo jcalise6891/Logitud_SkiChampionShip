@@ -42,7 +42,7 @@ class PersonneController
             }
         }catch (Exception $e){
             return new Response(
-                $container['twog']
+                $container['twig']
                     ->render(
                         'personne/addPersonne.html.twig',
                         [
@@ -50,7 +50,7 @@ class PersonneController
                             'epreuve' => $m_epreuve->retrieveSingleEpreuve($attributes['id']),
                             'categorieList' => $m_categorie->retrieveCategorieList(),
                             'profilList' => $m_profil->retrieveCatagorieList(),
-                            'errorMessage' => "Il y à eu un problème lors de l'ajout du participant",
+                            'errorMessage' => $e->getMessage(),
                             'status' => true
                         ]
                     ), Response::HTTP_METHOD_NOT_ALLOWED

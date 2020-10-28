@@ -81,11 +81,19 @@ abstract class EntityAbstract
         );
     }
 
+    /**
+     * @param string $string
+     * @return DateTime
+     * @throws Exception
+     */
     protected static function strToDate(string $string): DateTime
     {
-        return DateTime::createFromFormat(
-            'Y-m-d',
-            $string
-        );
+       $date = DateTime::createFromFormat('Y-m-d',$string);
+       if($date != false){
+           return $date;
+       }
+       else{
+           throw new Exception('Date Invalide');
+       }
     }
 }
