@@ -93,5 +93,18 @@ class EpreuveModel extends EntityAbstract
         );
     }
 
+    /**
+     * @param $idEpreuve
+     * @param int $idPersonne
+     * @return bool
+     */
+    public function insertPersonneToEpreuveIntoBDD($idEpreuve, int $idPersonne){
+        $sql = "INSERT INTO personne_epreuve (personne_ID, epreuve_ID) VALUES (:perID, :eprID)";
+        $query = $this->pdo->prepare($sql);
+        $query->bindValue(':perID',$idPersonne);
+        $query->bindValue(':eprID',$idEpreuve);
+        return $query->execute();
+    }
+
 
 }

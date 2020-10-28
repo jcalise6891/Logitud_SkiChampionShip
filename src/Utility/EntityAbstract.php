@@ -65,6 +65,10 @@ abstract class EntityAbstract
         return preg_split('/(?=[A-Z])/', $s, -1, PREG_SPLIT_NO_EMPTY);
     }
 
+    /**
+     * @param string $string
+     * @return DateTime
+     */
     protected static function strToDateTime(string $string): DateTime
     {
         return DateTime::createFromFormat(
@@ -74,6 +78,14 @@ abstract class EntityAbstract
                 ' ',
                 $string
             )
+        );
+    }
+
+    protected static function strToDate(string $string): DateTime
+    {
+        return DateTime::createFromFormat(
+            'Y-m-d',
+            $string
         );
     }
 }

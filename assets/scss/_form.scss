@@ -39,7 +39,7 @@
 }
 
 .form-white input[type=password]:focus:not([readonly]) + label {
-  color: #fff;
+  color: #2E2E2E;
 }
 
 .form-white input[type=password], .form-white input[type=text] {
@@ -47,11 +47,11 @@
 }
 
 .form-white .form-control:focus {
-  color: #fff;
+  color: #2E2E2E;
 }
 
 .form-white .form-control {
-  color: #fff;
+  color: #2E2E2E;
 }
 
 .form-white textarea.md-textarea:focus:not([readonly]) {
@@ -73,6 +73,10 @@
   background-image: linear-gradient(120deg, #553CCD 0%, #A22AE0 100%);
 }
 
-.md-form i {
+.md-form i{
   color:#fff;
+}
+
+.md-form input{
+  color:#2E2E2E;
 }
