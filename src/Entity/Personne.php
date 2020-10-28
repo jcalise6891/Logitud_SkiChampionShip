@@ -22,12 +22,13 @@ class Personne extends EntityAbstract
 
     /**
      * Personne constructor.
+     * @param int $ID
      * @param String $nom
      * @param String $prenom
      * @param String $mail
      * @param DateTime $dateDeNaissance
-     * @param \App\Entity\Profil $profil
-     * @param \App\Entity\Categorie $categorie
+     * @param Profil $profil
+     * @param Categorie $categorie
      * @param String $image = "default"
      * @throws Exception
      */

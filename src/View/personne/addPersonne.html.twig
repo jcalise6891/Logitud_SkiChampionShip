@@ -1,0 +1,82 @@
+{% extends 'template/layout.html.twig' %}
+{% block body %}
+    <div class="container m-auto">
+        <div class="row d-flex m-auto">
+            <div class="col-6">
+                <div class="card ripe-malinka-gradient form-white px-1">
+                    <div class="card-body">
+                        <form method="post" role="form" action="/Logitud_SkiChampionShip/{{ epreuve.ID }}/addPersonne/add"
+                              class="form-group">
+                            <div class="md-form">
+                                <i>Nom</i>
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        name="personneNom"
+                                        required
+                                >
+                            </div>
+                            <div class="md-form">
+                                <i>Prenom</i>
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        name="personnePrenom"
+                                        required
+                                >
+                            </div>
+                            <div class="md-form">
+                                <i>E-mail</i>
+                                <input
+                                        type="email"
+                                        class="form-control"
+                                        name="personneMail"
+                                        placeholder="example@domain.com"
+                                        required
+                                >
+                            </div>
+                            <div class="md-form">
+                                <i>Date de Naissances</i>
+                                <input
+                                        type="date"
+                                        class="form-control"
+                                        name="personneDDN"
+                                        required
+                                >
+                            </div>
+                            <div class="md-form">
+                                <i>Catégorie</i>
+                                <select
+                                        class="form-control"
+                                        name="personneCategory"
+                                        required>
+                                <option selected> ...</option>
+                                {% for categorie in categorieList %}
+                                <option> {{ categorie.nom }} </option>
+                                {% endfor %}
+                                </select>
+                            </div>
+                            <div class="md-form">
+                                <i>Profil</i>
+                                <select
+                                        class="form-control"
+                                        name="personneProfil"
+                                        required>
+                                <option selected> ...</option>
+                                {% for profil in profilList %}
+                                <option> {{ profil.nom }} </option>
+                                {% endfor %}
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-outline-white waves-effect waves-light"
+                                        name="submit">Ajouter
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
