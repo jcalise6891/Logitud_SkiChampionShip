@@ -1,32 +1,32 @@
-@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/css/mdb.min.css);
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/css/mdb.min.css');
 @import '../../node_modules/bootstrap/scss/bootstrap';
-@import "navbar";
-@import "table";
-@import "modal";
-@import "form";
+@import 'navbar';
+@import 'table';
+@import 'modal';
+@import 'form';
 
 body {
-  min-height: 100%;
-  height: 100vh;
-  color: #222;
   background: #fff;
+  color: #222;
+  height: 100vh;
+  min-height: 100%;
 }
 
 a {
-  color: #0033cc;
+  color: #03c;
 }
 
-body.dark-theme {
-  color: #eee !important;
+body .dark-theme {
   background: #121212;
+  color: #eee !important;
 }
 
-body.dark-theme a {
+body .dark-theme a {
   color: #809fff;
 }
 
-body.dark-theme th {
+body .dark-theme th {
   color: #eee;
 }
 
@@ -34,10 +34,18 @@ body th {
   color: #000;
 }
 
-body.dark-theme td {
+body .dark-theme td {
   color: #eee;
 }
 
 body td {
   color: #212529;
+}
+
+.btn a i {
+  color: #fff;
+}
+
+table a:hover {
+  text-decoration: none;
 }

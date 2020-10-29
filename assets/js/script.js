@@ -21,15 +21,11 @@ btn.addEventListener('change', function () {
 
 })
 
-$(document).ready(function() {
-    $('#participantTable').DataTable( {
+$(document).ready(function () {
+    $('#participantTable').DataTable({
         // "pagingType": "full_numbers"
         "lengthMenu": [[5, 10, 50, -1], [5, 10, 50, "All"]]
-    } );
-} );
-
-$('#btnDelete').tooltip(options)({
-    delay : { "show":0, "hide":100}
-})
+    });
+});
 
 

@@ -35,16 +35,10 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="card {% if(theme == "dark") %}bg-dark{% else %}bg-light{% endif %}  mb-3" style="max-width: 18rem;">
+                <div class="card {% if(theme == "dark") %}bg-dark{% else %}bg-light{% endif %}  mb-3"
+                     style="max-width: 18rem;">
                     <div class="card-header">Options</div>
                     <div class="card-body text-center">
-                        <button class="btn btn-danger"
-                                id="btnDelete"
-                                data-toggle="tooltip"
-                                data-placement="top"
-                                title="Supprimer L'épreuve">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
                         <button class="btn btn-success"
                                 onclick="location.href='/Logitud_SkiChampionShip/{{ epreuve.ID }}/addPersonne'">
                             <i class="fas fa-user-plus"></i>
@@ -58,14 +52,14 @@
             <div class="col-12">
                 <table class="table table-bordered" id="participantTable">
                     <thead>
-                        <tr>
-                            <th class="text-center" scope="col">ID</th>
-                            <th class="text-center" scope="col">Nom</th>
-                            <th class="text-center" scope="col">Prenom</th>
-                            <th class="text-center" scope="col">E-mail</th>
-                            <th class="text-center" scope="col">Date De Naissance</th>
-                            <th class="text-center" scope="col">Actions</th>
-                        </tr>
+                    <tr>
+                        <th class="text-center" scope="col">ID</th>
+                        <th class="text-center" scope="col">Nom</th>
+                        <th class="text-center" scope="col">Prenom</th>
+                        <th class="text-center" scope="col">E-mail</th>
+                        <th class="text-center" scope="col">Date De Naissance</th>
+                        <th class="text-center" scope="col">Actions</th>
+                    </tr>
                     </thead>
                     <tbody>
                     {% for personne in personneList %}

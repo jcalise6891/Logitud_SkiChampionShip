@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Model;
-
 
 use App\Entity\Epreuve;
 use App\Utility\EntityAbstract;
@@ -49,7 +47,7 @@ class EpreuveModel extends EntityAbstract
         if ($oEpreuve = $this->retrieveSingleEpreuve($epreuve->getID())) {
             $oldEpreuve = $this->arrayToEpreuve($oEpreuve);
             if (
-                ($oldEpreuve->getDate()->diff($epreuve->getDate())) != 0
+                ($oldEpreuve->getDate() < $epreuve->getDate())
                 ||
                 $oldEpreuve->getNom() != $epreuve->getNom()
             ) {
@@ -58,12 +56,14 @@ class EpreuveModel extends EntityAbstract
                 $query->bindValue(':nomEpreuve', $epreuve->getNom(), PDO::PARAM_STR);
                 $query->bindValue(
                     ':dateEpreuve',
-                    $epreuve->getDate()->format('Y-m-d:H:i'), PDO::PARAM_STR
+                    $epreuve->getDate()->format('Y-m-d:H:i'),
+                    PDO::PARAM_STR
                 );
                 $query->bindValue(':ID', $epreuve->getID(), PDO::PARAM_INT);
                 return $query->execute();
             }
         }
+        throw new Exception("L'épreuve ne peux pas être placé à une date antérieur");
     }
 
     /**
@@ -74,7 +74,7 @@ class EpreuveModel extends EntityAbstract
     {
         $sql = "select * from epreuve where epreuve.ID = :id";
         $query = $this->pdo->prepare($sql);
-        $query->bindValue(':id', $id);
+        $query->bindValue(':id', $id, PDO::PARAM_STR);
         $query->execute();
         return $query->fetch(PDO::FETCH_ASSOC);
     }
@@ -93,5 +93,17 @@ class EpreuveModel extends EntityAbstract
         );
     }
 
-
+    /**
+     * @param $idEpreuve
+     * @param int $idPersonne
+     * @return bool
+     */
+    public function insertPersonneToEpreuveIntoBDD($idEpreuve, int $idPersonne)
+    {
+        $sql = "INSERT INTO personne_epreuve (personne_ID, epreuve_ID) VALUES (:perID, :eprID)";
+        $query = $this->pdo->prepare($sql);
+        $query->bindValue(':perID', $idPersonne);
+        $query->bindValue(':eprID', $idEpreuve);
+        return $query->execute();
+    }
 }
