@@ -38,7 +38,8 @@ class EpreuveController extends AbstractMainController
                 ->render(
                     'epreuve/showEpreuveList.html.twig',
                     ['epreuveList' => $result, 'theme' => $container['theme']]
-                ), 200
+                ),
+            200
         );
     }
 
@@ -71,7 +72,8 @@ class EpreuveController extends AbstractMainController
                         'epreuveDate' => $epreuveDate,
                         'theme' => $container['theme']
                     ]
-                ), 200
+                ),
+            200
         );
     }
 
@@ -89,7 +91,8 @@ class EpreuveController extends AbstractMainController
                 ->render(
                     'epreuve/addEpreuve.html.twig',
                     ['theme' => $container['theme']]
-                ), 200
+                ),
+            200
         );
     }
 
@@ -118,7 +121,8 @@ class EpreuveController extends AbstractMainController
                             'errorMessage' => "L'épreuve ne peut être créer à une date antérieur à la date actuelle",
                             'urlToRedirect' => '/Logitud_SkiChampionShip/addEpreuve'
                         ]
-                    ), Response::HTTP_METHOD_NOT_ALLOWED
+                    ),
+                    Response::HTTP_METHOD_NOT_ALLOWED
                 );
             }
             $connexion = new BDD($container['PDO']);
@@ -134,7 +138,8 @@ class EpreuveController extends AbstractMainController
                                 'errorMessage' => 'Il existe déjà une épreuve avec ce nom',
                                 'urlToRedirect' => '/Logitud_SkiChampionShip/addEpreuve'
                             ]
-                        ), Response::HTTP_METHOD_NOT_ALLOWED
+                        ),
+                    Response::HTTP_METHOD_NOT_ALLOWED
                 );
             }
         }
@@ -194,7 +199,8 @@ class EpreuveController extends AbstractMainController
                         'theme' => $container['theme'],
                         'errorMessage' => $e->getMessage()
                     ]
-                ), Response::HTTP_METHOD_NOT_ALLOWED
+                ),
+                Response::HTTP_METHOD_NOT_ALLOWED
             );
         }
         return new RedirectResponse(

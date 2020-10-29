@@ -52,7 +52,8 @@ class PersonneController
                         'status' => true,
                         'errorMessage' => $e->getMessage(),
                     ]
-                ), Response::HTTP_METHOD_NOT_ALLOWED
+                ),
+                Response::HTTP_METHOD_NOT_ALLOWED
             );
         }
     }
@@ -79,7 +80,8 @@ class PersonneController
                         'categorieList' => $m_categorie->retrieveCategorieList(),
                         'profilList' => $m_profil->retrieveCatagorieList(),
                     ]
-                ), 200
+                ),
+            200
         );
     }
 

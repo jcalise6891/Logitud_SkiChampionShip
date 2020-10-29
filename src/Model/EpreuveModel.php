@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Model;
-
 
 use App\Entity\Epreuve;
 use App\Utility\EntityAbstract;
@@ -108,6 +106,4 @@ class EpreuveModel extends EntityAbstract
         $query->bindValue(':eprID', $idEpreuve);
         return $query->execute();
     }
-
-
 }
