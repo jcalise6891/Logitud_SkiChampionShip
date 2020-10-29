@@ -28,8 +28,4 @@ $(document).ready(function() {
     } );
 } );
 
-$('#btnDelete').tooltip(options)({
-    delay : { "show":0, "hide":100}
-})
-
 

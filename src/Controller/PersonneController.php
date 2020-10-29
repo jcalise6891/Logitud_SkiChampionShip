@@ -24,13 +24,8 @@ class PersonneController
         try{
             $m_personne = new PersonneModel($container['PDO']);
             $m_BDD = new BDD($container['PDO']);
-            $m_epreuve = new EpreuveModel($container['PDO']);
-            $m_categorie = new CategorieModel($container['PDO']);
-            $m_profil = new ProfilModel($container['PDO']);
             $personne = $m_personne->arrayToPersonne($request->request->all());
-            dump($request->request->all());
-            dump($personne);
-            dump($personne->getDateDeNaissance()->format('Y-m-d'));
+            $m_epreuve = new EpreuveModel($container['PDO']);
             if($m_BDD->addToBDD($personne))
             {
                 if($m_epreuve->insertPersonneToEpreuveIntoBDD($attributes['id'],$personne->getID())) {
@@ -39,19 +34,24 @@ class PersonneController
                         Response::HTTP_TEMPORARY_REDIRECT
                     );
                 }
+            } else {
+                throw new Exception('Un même participants ne peux être ajouter deux fois');
             }
         }catch (Exception $e){
+            $m_epreuve = new EpreuveModel($container['PDO']);
+            $m_categorie = new CategorieModel($container['PDO']);
+            $m_profil = new ProfilModel($container['PDO']);
             return new Response(
-                $container['twig']
-                    ->render(
+                $container['twig']->render(
                         'personne/addPersonne.html.twig',
                         [
-                            'theme' => $container['theme'],
-                            'epreuve' => $m_epreuve->retrieveSingleEpreuve($attributes['id']),
-                            'categorieList' => $m_categorie->retrieveCategorieList(),
-                            'profilList' => $m_profil->retrieveCatagorieList(),
-                            'errorMessage' => $e->getMessage(),
-                            'status' => true
+                            'theme'         =>  $container['theme'],
+                            'epreuve'       =>  $m_epreuve->retrieveSingleEpreuve($attributes['id']),
+                            'categorieList' =>  $m_categorie->retrieveCategorieList(),
+                            'profilList'    =>  $m_profil->retrieveCatagorieList(),
+                            'urlToRedirect' =>  "/Logitud_SkiChampionShip/".$attributes['id']."/addPersonne",
+                            'status'        =>  true,
+                            'errorMessage'  =>  $e->getMessage(),
                         ]
                     ), Response::HTTP_METHOD_NOT_ALLOWED
             );

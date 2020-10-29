@@ -115,7 +115,8 @@ class EpreuveController extends AbstractMainController
                         [
                             'status' => true,
                             'theme' => $container['theme'],
-                            'errorMessage' => "L'épreuve ne peut être créer à une date antérieur à la date actuelle"
+                            'errorMessage' => "L'épreuve ne peut être créer à une date antérieur à la date actuelle",
+                            'urlToRedirect' => '/Logitud_SkiChampionShip/addEpreuve'
                         ]
                     ), Response::HTTP_METHOD_NOT_ALLOWED
                 );
@@ -130,7 +131,8 @@ class EpreuveController extends AbstractMainController
                                 'entity' => $newEpreuve,
                                 'status' => true,
                                 'theme' => $container['theme'],
-                                'errorMessage' => 'Il existe déjà une épreuve avec ce nom'
+                                'errorMessage' => 'Il existe déjà une épreuve avec ce nom',
+                                'urlToRedirect' => '/Logitud_SkiChampionShip/addEpreuve'
                             ]
                         ), Response::HTTP_METHOD_NOT_ALLOWED
                 );
@@ -179,6 +181,7 @@ class EpreuveController extends AbstractMainController
                 EntityAbstract::strToDateTime($request->get('epreuveDate'))
             );
             $newEpreuve->setID($attributes['id']);
+            $connexion->insertIntoBDDNewEpreuve($newEpreuve);
         }catch (Exception $e){
             return new Response(
                 $container['twig']->render(
@@ -188,11 +191,14 @@ class EpreuveController extends AbstractMainController
                         'currentEpreuve' => $attributes['id'],
                         'status' => true,
                         'theme' => $container['theme'],
-                        'errorMessage' => "L'épreuve ne peut être mis à jour à une date antérieur à la date actuelle"
+                        'errorMessage' => $e->getMessage()
                     ]
                 ), Response::HTTP_METHOD_NOT_ALLOWED
             );
         }
-        $connexion->insertIntoBDDNewEpreuve($newEpreuve);
+        return new RedirectResponse(
+            '/Logitud_SkiChampionShip/showEpreuve/'.$attributes['id'],
+            Response::HTTP_TEMPORARY_REDIRECT
+        );
     }
 }
