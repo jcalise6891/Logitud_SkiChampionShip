@@ -20,13 +20,13 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                 <button type="button"
                         onclick="location.href =
-                                {% if(entity.prenom) %}
+                        {% if(entity.prenom) %}
                                 'deletePersonne/{{ entity.ID }}'"
-                                {% else %}
-                                'deleteEpreuve/{{ entity.ID }}'"
-                                {% endif %}
-                        class="btn btn-danger">
-                    Supprimer
+                {% else %}
+                    'deleteEpreuve/{{ entity.ID }}'"
+                {% endif %}
+                class="btn btn-danger">
+                Supprimer
                 </button>
             </div>
         </div>

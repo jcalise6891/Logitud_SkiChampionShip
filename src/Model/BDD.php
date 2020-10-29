@@ -66,13 +66,14 @@ class BDD extends EntityAbstract
                 $query->bindValue(':nom', $object->getCategorieNom());
                 return $query->execute();
             case 'Personne':
-                $sql = "INSERT INTO personne (nom, prenom, mail, dateDeNaissance, categorie, profil)
-                        VALUES (:nom, :prenom, :mail, :dateDeNaissance, :categorie, :profil)";
+                $sql = "INSERT INTO personne (ID, nom, prenom, mail, dateDeNaissance, categorie, profil)
+                        VALUES (:ID, :nom, :prenom, :mail, :dateDeNaissance, :categorie, :profil)";
                 $query = $this->PDO->prepare($sql);
+                $query->bindValue(':ID', $object->getID(), PDO::PARAM_INT);
                 $query->bindValue(':nom', $object->getNom(), PDO::PARAM_STR);
                 $query->bindValue(':prenom', $object->getPrenom(), PDO::PARAM_STR);
                 $query->bindValue(':mail', $object->getMail(), PDO::PARAM_STR);
-                $query->bindValue(':dateDeNaissance', $object->getDateDeNaissance->format('Y-m-d'));
+                $query->bindValue(':dateDeNaissance', $object->getDateDeNaissance()->format('Y-m-d'), PDO::PARAM_STR);
                 $query->bindValue(':categorie', $object->getCategorie()->getID());
                 $query->bindValue(':profil', $object->getProfil()->getID());
                 return $query->execute();

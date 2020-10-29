@@ -62,19 +62,27 @@ class Personne extends EntityAbstract
     }
 
     /**
-     * @return String
+     * @return int
      */
-    public function getCategorie(): string
+    public function getID(): int
     {
-        return $this->categorie->getCategorieNom();
+        return $this->ID;
     }
 
     /**
-     * @return String
+     * @return Categorie
      */
-    public function getProfil(): string
+    public function getCategorie(): Categorie
     {
-        return $this->profil->getProfilNom();
+        return $this->categorie;
+    }
+
+    /**
+     * @return Profil
+     */
+    public function getProfil(): Profil
+    {
+        return $this->profil;
     }
 
     /**

@@ -11,7 +11,10 @@
     "moment": "^2.29.1"
   },
   "devDependencies": {
-    "chokidar": "^3.4.3"
+    "chokidar": "^3.4.3",
+    "stylelint": "^13.7.2",
+    "stylelint-config-sass-guidelines": "^7.1.0",
+    "stylelint-config-standard": "^20.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -25,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/jcalise6891/Logitud_SkiChampionShip/issues"
   },
-  "homepage": "https://github.com/jcalise6891/Logitud_SkiChampionShip#readme"
+  "homepage": "https://github.com/jcalise6891/Logitud_SkiChampionShip#readme",
+  "optionalDependencies": {
+    "fsevents": "^2.1.3"
+  }
 }
