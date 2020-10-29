@@ -36,4 +36,5 @@ class PersonneModel extends AbstractMainController
             $m_categorie->retrieveCategorieFromString($aPersonne['personneCategory'])
         );
     }
+
 }
