@@ -35,10 +35,10 @@ class EpreuveController extends AbstractMainController
         $result = $connexion->retrieveEpreuveList();
         return new Response(
             $container['twig']
-            ->render(
-                'epreuve/showEpreuveList.html.twig',
-                ['epreuveList' => $result, 'theme' => $container['theme']]
-            ), 200
+                ->render(
+                    'epreuve/showEpreuveList.html.twig',
+                    ['epreuveList' => $result, 'theme' => $container['theme']]
+                ), 200
         );
     }
 
@@ -173,7 +173,8 @@ class EpreuveController extends AbstractMainController
      * @param $container
      * @throws Exception
      */
-    public function updateEpreuve($request, $attributes, $container){
+    public function updateEpreuve($request, $attributes, $container)
+    {
         $connexion = new EpreuveModel($container['PDO']);
         try {
             $newEpreuve = new Epreuve(
@@ -182,12 +183,12 @@ class EpreuveController extends AbstractMainController
             );
             $newEpreuve->setID($attributes['id']);
             $connexion->insertIntoBDDNewEpreuve($newEpreuve);
-        }catch (Exception $e){
+        } catch (Exception $e) {
             return new Response(
                 $container['twig']->render(
                     'epreuve/showSingleEpreuve.html.twig',
                     [
-                        'urlToRedirect' => "/Logitud_SkiChampionShip/showEpreuve/".$attributes['id'],
+                        'urlToRedirect' => "/Logitud_SkiChampionShip/showEpreuve/" . $attributes['id'],
                         'currentEpreuve' => $attributes['id'],
                         'status' => true,
                         'theme' => $container['theme'],
@@ -197,7 +198,7 @@ class EpreuveController extends AbstractMainController
             );
         }
         return new RedirectResponse(
-            '/Logitud_SkiChampionShip/showEpreuve/'.$attributes['id'],
+            '/Logitud_SkiChampionShip/showEpreuve/' . $attributes['id'],
             Response::HTTP_TEMPORARY_REDIRECT
         );
     }

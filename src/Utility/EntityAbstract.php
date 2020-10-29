@@ -88,12 +88,11 @@ abstract class EntityAbstract
      */
     protected static function strToDate(string $string): DateTime
     {
-       $date = DateTime::createFromFormat('Y-m-d',$string);
-       if($date != false){
-           return $date;
-       }
-       else{
-           throw new Exception('Date Invalide');
-       }
+        $date = DateTime::createFromFormat('Y-m-d', $string);
+        if ($date != false) {
+            return $date;
+        } else {
+            throw new Exception('Date Invalide');
+        }
     }
 }

@@ -78,7 +78,6 @@ class Epreuve extends EntityAbstract
     }
 
 
-
     /**
      * @param Personne $personne
      * @throws Exception

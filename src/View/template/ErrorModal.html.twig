@@ -18,12 +18,12 @@
                 <button type="button"
                         onclick="location.href =
                         {% if(urlToRedirect) %}
-                               '{{ urlToRedirect }}'"
-                        {% else %}
-                                '../addEpreuve'"
-                        {% endif %}
-                        class="btn btn-danger">
-                    OK
+                                '{{ urlToRedirect }}'"
+                {% else %}
+                    '../addEpreuve'"
+                {% endif %}
+                class="btn btn-danger">
+                OK
                 </button>
             </div>
         </div>

@@ -5,7 +5,8 @@
             <div class="col-6">
                 <div class="card ripe-malinka-gradient form-white px-1">
                     <div class="card-body">
-                        <form method="post" role="form" action="/Logitud_SkiChampionShip/{{ epreuve.ID }}/addPersonne/add"
+                        <form method="post" role="form"
+                              action="/Logitud_SkiChampionShip/{{ epreuve.ID }}/addPersonne/add"
                               class="form-group">
                             <div class="md-form">
                                 <i>Nom</i>
@@ -50,9 +51,9 @@
                                         class="form-control"
                                         name="personneCategory"
                                         required>
-                                {% for categorie in categorieList %}
-                                <option> {{ categorie.nom }} </option>
-                                {% endfor %}
+                                    {% for categorie in categorieList %}
+                                        <option> {{ categorie.nom }} </option>
+                                    {% endfor %}
                                 </select>
                             </div>
                             <div class="md-form">
@@ -61,9 +62,9 @@
                                         class="form-control"
                                         name="personneProfil"
                                         required>
-                                {% for profil in profilList %}
-                                <option> {{ profil.nom }} </option>
-                                {% endfor %}
+                                    {% for profil in profilList %}
+                                        <option> {{ profil.nom }} </option>
+                                    {% endfor %}
                                 </select>
                             </div>
                             <div class="text-center">

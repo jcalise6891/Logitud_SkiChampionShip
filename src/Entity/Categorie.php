@@ -33,12 +33,12 @@ class Categorie extends EntityAbstract
         return new self($id, $nom);
     }
 
-    public function getCategorieNom():string
+    public function getCategorieNom(): string
     {
         return $this->nom;
     }
 
-    public function getID():int
+    public function getID(): int
     {
         return $this->ID;
     }
