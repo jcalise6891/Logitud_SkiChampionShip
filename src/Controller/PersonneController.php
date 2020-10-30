@@ -95,9 +95,35 @@ class PersonneController
     {
     }
 
+    /**
+     * @param $request
+     * @param $attributes
+     * @param $container
+     * @return RedirectResponse | Response
+     */
     public function deletePersonne($request, $attributes, $container)
     {
-        $m_personne = new PersonneModel($container['PDO']);
-        $m_personne->
+        try {
+            $m_personne = new PersonneModel($container['PDO']);
+            $m_personne->deletePersonneFromEpreuve($attributes['idEpreuve'], $attributes['idPersonne']);
+        }catch (Exception $e){
+            return new Response(
+                $container['twig']
+                    ->render(
+                       'epreuve/showSingleEpreuve.html.twig',
+                        [
+                            'theme' => $container['theme'],
+                            'status' => true,
+                            'urlToRedirect' => '/Logitud_SkiChampionShip/showEpreuve/'.$attributes['idEpreuve'],
+                            'errorMessage' => $e->getMessage(),
+                            'currentEpreuve' => $attributes['id']
+                        ]
+                    ), Response::HTTP_BAD_REQUEST
+            );
+        }
+        return new RedirectResponse(
+            '/Logitud_SkiChampionShip/showEpreuve/'.$attributes['idEpreuve'],
+            Response::HTTP_TEMPORARY_REDIRECT
+        );
     }
 }

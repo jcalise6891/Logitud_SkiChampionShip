@@ -92,7 +92,7 @@
 
                         </tr>
                         {% set entity = personne %}
-                        {% include 'template/confirmModal.html.twig' with entity %}
+                        {% include 'template/confirmModal.html.twig' with {'entity': entity, 'epreuve':epreuve} %}
                     {% endfor %}
                     </tbody>
                 </table>

@@ -35,5 +35,5 @@ addPersonne:
   defaults: { _controller: App\Controller\PersonneController::addPersonne }
 
 deletePersonne:
-  path: /deletePersonne/{id}
+  path: /deletePersonne/{idEpreuve}/{idPersonne}
   defaults: { _controller: App\Controller\PersonneController::deletePersonne}
