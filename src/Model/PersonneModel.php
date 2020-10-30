@@ -26,8 +26,9 @@ class PersonneModel extends AbstractMainController
     {
         $m_categorie = new CategorieModel($this->pdo);
         $m_profil = new ProfilModel($this->pdo);
+        $m_BDD = new BDD($this->pdo);
         return new Personne(
-            random_int(0, PHP_INT_MAX),
+            $m_BDD->getLastIDFromEntity('personne')['ID']+1,
             $aPersonne['personneNom'],
             $aPersonne['personnePrenom'],
             $aPersonne['personneMail'],

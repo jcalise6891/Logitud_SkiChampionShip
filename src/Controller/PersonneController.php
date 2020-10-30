@@ -18,6 +18,7 @@ class PersonneController
      * @param $attributes
      * @param $container
      * @throws Exception
+     * @return Response | void
      */
     public function addPersonne($request, $attributes, $container)
     {

@@ -95,4 +95,11 @@ class BDD extends EntityAbstract
         $query->bindValue(':id', $id, PDO::PARAM_INT);
         return $query->execute();
     }
+
+    public function getLastIDFromEntity(string $entity){
+        $sql = 'SELECT ID FROM '.$entity.' ORDER BY ID DESC';
+        $query = $this->PDO->prepare($sql);
+        $query->execute();
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
 }
