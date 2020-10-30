@@ -29,6 +29,7 @@ class Personne extends EntityAbstract
      * @param DateTime $dateDeNaissance
      * @param Profil $profil
      * @param Categorie $categorie
+     * @param Passage $passage
      * @param String $image = "default"
      * @throws Exception
      */
@@ -40,6 +41,7 @@ class Personne extends EntityAbstract
         DateTime $dateDeNaissance,
         Profil $profil,
         Categorie $categorie,
+        Passage $passage = null,
         string $image = "default"
     ) {
         EntityAbstract::isNotEmpty($ID);
@@ -126,11 +128,11 @@ class Personne extends EntityAbstract
     }
 
     /**
-     * @return array
+     * @return Passage
      */
-    public function getPassage(): array
+    public function getPassage(): Passage
     {
-        $this->passage->getTime();
+        return $this->passage;
     }
 
     /**
