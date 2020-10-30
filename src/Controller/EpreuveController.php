@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Epreuve;
 use App\Model\BDD;
+use App\Model\CSVModel;
 use App\Model\EpreuveModel;
 use App\Utility\EntityAbstract;
 use Exception;
@@ -177,6 +178,7 @@ class EpreuveController extends AbstractMainController
      * @param $attributes
      * @param $container
      * @throws Exception
+     * @return Response | RedirectResponse | void
      */
     public function updateEpreuve($request, $attributes, $container)
     {
@@ -207,5 +209,10 @@ class EpreuveController extends AbstractMainController
             '/Logitud_SkiChampionShip/showEpreuve/' . $attributes['id'],
             Response::HTTP_TEMPORARY_REDIRECT
         );
+    }
+
+    public function downloadCSV($request, $attributes, $container){
+        $m_CSV = new CSVModel($container['PDO']);
+        return new Response($m_CSV->createCSV($attributes['id']),200);
     }
 }

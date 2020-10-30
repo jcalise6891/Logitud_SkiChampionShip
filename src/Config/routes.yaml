@@ -37,3 +37,7 @@ addPersonne:
 deletePersonne:
   path: /deletePersonne/{idEpreuve}/{idPersonne}
   defaults: { _controller: App\Controller\PersonneController::deletePersonne}
+
+createCSV:
+  path: /createCSV/{id}
+  defaults: { _controller: App\Controller\EpreuveController::downloadCSV }

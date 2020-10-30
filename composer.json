@@ -18,7 +18,8 @@
     "symfony/config": "^5.1",
     "symfony/routing": "^3.4",
     "pimple/pimple": "~3.0",
-    "ramsey/uuid": "^4.1"
+    "ramsey/uuid": "^4.1",
+    "league/csv": "^9.6"
   },
   "autoload": {
     "psr-4": {

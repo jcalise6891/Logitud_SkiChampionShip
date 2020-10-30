@@ -1,5 +1,5 @@
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/css/mdb.min.css');
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/css/mdb.min.css);
 @import '../../node_modules/bootstrap/scss/bootstrap';
 @import 'navbar';
 @import 'table';
@@ -17,16 +17,16 @@ a {
   color: #03c;
 }
 
-body .dark-theme {
+body.dark-theme {
   background: #121212;
   color: #eee !important;
 }
 
-body .dark-theme a {
+body.dark-theme a {
   color: #809fff;
 }
 
-body .dark-theme th {
+body.dark-theme th {
   color: #eee;
 }
 
@@ -34,7 +34,7 @@ body th {
   color: #000;
 }
 
-body .dark-theme td {
+body.dark-theme td {
   color: #eee;
 }
 
