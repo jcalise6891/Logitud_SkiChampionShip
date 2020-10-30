@@ -94,4 +94,10 @@ class PersonneController
     public function showSinglePersonne()
     {
     }
+
+    public function deletePersonne($request, $attributes, $container)
+    {
+        $m_personne = new PersonneModel($container['PDO']);
+        $m_personne->
+    }
 }

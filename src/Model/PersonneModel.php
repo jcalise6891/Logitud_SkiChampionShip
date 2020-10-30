@@ -37,4 +37,8 @@ class PersonneModel extends AbstractMainController
             $m_categorie->retrieveCategorieFromString($aPersonne['personneCategory'])
         );
     }
+
+    public function deletePersonneFromEpreuve(string $epreuveID, string $personneID){
+
+    }
 }

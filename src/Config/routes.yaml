@@ -33,3 +33,7 @@ showAddPersonne:
 addPersonne:
   path: /{id}/addPersonne/add
   defaults: { _controller: App\Controller\PersonneController::addPersonne }
+
+deletePersonne:
+  path: /deletePersonne/{id}
+  defaults: { _controller: App\Controller\PersonneController::deletePersonne}
