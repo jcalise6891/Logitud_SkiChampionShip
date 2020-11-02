@@ -50,6 +50,7 @@ $container['PDO'] = function () {
 
 $container['theme'] = $request->cookies->get('theme');
 
+
 try {
     $attributes = $matcher->match($request->getPathInfo());
     $object = explode('::', $attributes['_controller']);

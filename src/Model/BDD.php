@@ -20,7 +20,6 @@ class BDD extends EntityAbstract
     }
 
     /**
-     * @param PDO $pdo
      * @param string $entityName
      * @return array
      */

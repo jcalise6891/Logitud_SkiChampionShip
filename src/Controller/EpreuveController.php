@@ -11,6 +11,7 @@ use Exception;
 use League\Csv\CannotInsertRecord;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\File\File;
 use Twig\Environment;
 
 class EpreuveController extends AbstractMainController
@@ -225,8 +226,48 @@ class EpreuveController extends AbstractMainController
         return new Response($m_CSV->createCSV($attributes['id']),200);
     }
 
+    /**
+     * @param $request
+     * @param $attributes
+     * @param $container
+     * @return Response
+     */
     public function uploadCSV($request, $attributes, $container){
         $m_CSV = new CSVModel($container['PDO']);
-        dump($request);
+        $file = $request->files->get('upload');
+        try{
+            if($file->getClientOriginalExtension() == "csv" && $file->isValid()){
+                $destPath = "./UploadedFile";
+                $fileNewName = substr(
+                    md5($file->getClientOriginalName()),
+                    0,
+                    8
+                    ).'.'.$file->getClientOriginalExtension();
+                $uploadFile = ['path' => $destPath, 'name' => $fileNewName];
+                $result =$file->move($uploadFile['path'],$uploadFile['name']);
+
+
+                return new Response("OK", Response::HTTP_OK);
+            }
+            throw new Exception("Le fichier doit être un .csv");
+
+        }catch (Exception $e){
+            return new response(
+                $container['twig']
+                    ->render(
+                        'epreuve/showSingleEpreuve.html.twig',
+                        [
+                            'theme'         =>  $container['theme'],
+                            'urlToRedirect' =>  "/Logitud_SkiChampionShip/showEpreuve/".$attributes['id'],
+                            'currentEpreuve'=>  $attributes['id'],
+                            'errorMessage'  =>  $e->getMessage(),
+                            'status'        =>  true
+                        ]
+
+                    ),Response::HTTP_UNSUPPORTED_MEDIA_TYPE
+            );
+        }
+
+
     }
 }
