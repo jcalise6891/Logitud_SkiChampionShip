@@ -41,3 +41,7 @@ deletePersonne:
 createCSV:
   path: /createCSV/{id}
   defaults: { _controller: App\Controller\EpreuveController::downloadCSV }
+
+uploadCSV:
+  path: /uploadCSV/{id}
+  defaults: { _controller: App\Controller\EpreuveController::uploadCSV}

@@ -8,6 +8,7 @@ use App\Model\CSVModel;
 use App\Model\EpreuveModel;
 use App\Utility\EntityAbstract;
 use Exception;
+use League\Csv\CannotInsertRecord;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
@@ -211,8 +212,21 @@ class EpreuveController extends AbstractMainController
         );
     }
 
+    /**
+     * @param $request
+     * @param $attributes
+     * @param $container
+     * @return Response
+     * @throws CannotInsertRecord
+     * @throws \League\Csv\Exception
+     */
     public function downloadCSV($request, $attributes, $container){
         $m_CSV = new CSVModel($container['PDO']);
         return new Response($m_CSV->createCSV($attributes['id']),200);
+    }
+
+    public function uploadCSV($request, $attributes, $container){
+        $m_CSV = new CSVModel($container['PDO']);
+        dump($request);
     }
 }

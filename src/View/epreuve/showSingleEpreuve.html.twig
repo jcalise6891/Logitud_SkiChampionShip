@@ -35,20 +35,39 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="card {% if(theme == "dark") %}bg-dark{% else %}bg-light{% endif %}  mb-3"
-                     style="max-width: 18rem;">
-                    <div class="card-header">Options</div>
-                    <div class="card-body text-center">
-                        <button class="btn btn-success"
-                                onclick="location.href='/Logitud_SkiChampionShip/{{ epreuve.ID }}/addPersonne'">
-                            <i class="fas fa-user-plus"></i>
-                        </button>
-                        <button
-                                class="btn btn-primary"
-                                onclick="location.href='/Logitud_SkiChampionShip/createCSV/{{ epreuve.ID }}'"
-                        >
-                            <i class="fas fa-table"></i>
-                        </button>
+                <div class="row d-flex flex-column">
+                    <div class="card {% if(theme == "dark") %}bg-dark{% else %}bg-light{% endif %}  mb-3"
+                         style="max-width: 18rem;">
+                        <div class="card-header">Options</div>
+                        <div class="card-body text-center">
+                            <button class="btn btn-success"
+                                    onclick="location.href='/Logitud_SkiChampionShip/{{ epreuve.ID }}/addPersonne'">
+                                <i class="fas fa-user-plus"></i>
+                            </button>
+                            <button
+                                    class="btn btn-primary"
+                                    onclick="location.href='/Logitud_SkiChampionShip/createCSV/{{ epreuve.ID }}'"
+                            >
+                                <i class="fas fa-table"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row  d-flex flex-column">
+                    <div class="card {% if(theme == "dark") %}bg-dark{% else %}bg-light{% endif %}  mb-3"
+                         style="max-width: 18rem;">
+                        <div class="card-header">Upload</div>
+                        <div class="card-body text-center">
+                         <form method="post" action="/Logitud_SkiChampionShip/uploadCSV/{{ epreuve.ID }}" id="uploadCSV">
+                             <label>Charger le fichier avec les résultats</label>
+                             <input type="file" class="form-control" multiple="" accept=".csv">
+                             <div class="text-center">
+                                 <button type="submit" class="btn btn-outline-secondary waves-effect waves-light"
+                                         name="submit">Envoyer
+                                 </button>
+                             </div>
+                         </form>
+                        </div>
                     </div>
                 </div>
             </div>

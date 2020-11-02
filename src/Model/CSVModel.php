@@ -6,6 +6,7 @@ namespace App\Model;
 
 use League\Csv\CannotInsertRecord;
 use League\Csv\Exception;
+use League\Csv\Reader;
 use League\Csv\Writer;
 use PDO;
 use SplTempFileObject;
@@ -62,5 +63,13 @@ class CSVModel
         $m_personne = new PersonneModel($this->pdo);
         $m_BDD = new BDD($this->pdo);
 
+    }
+
+    /**
+     * @param $csv
+     * @return array
+     */
+    public function fromCSVToArray(string $uploadedFile):array{
+        return [];
     }
 }
